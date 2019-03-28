@@ -1,0 +1,10 @@
+ 
+The program is written in Gambas3 and requires some dependencies to work. 
+
+ On ArchLinux just type in a terminal: 
+ sudo pacman -S debhelper gambas3-dev gambas3-gb-image  gambas3-gb-gui  gambas3-gb-form  gambas3-gb-desktop  gambas3-gb-form-dialog gambas3-gb-settings gambas3-gb-image-effect  gambas3-gb-vb gambas3-gb-form-stock
+
+ On Ubuntu (and Debian derivatives) to install Gambas3 packages you have to add a repository. From the terminal type in sequence: 
+ sudo add-apt-repository ppa:nemh/gambas3
+ sudo apt-get update
+ sudo apt-get install debhelper gambas3-dev gambas3-gb-image  gambas3-gb-gui  gambas3-gb-form  gambas3-gb-desktop  gambas3-gb-form-dialog gambas3-gb-settings gambas3-gb-image-effect  gambas3-gb-vb gambas3-gb-form-stock
