@@ -1,0 +1,1387 @@
+' Gambas class file
+
+Public rom As String
+Public Est_file As String
+Public bios As String
+Public autofire As String
+Public console As String
+Public sd As String
+Public sr As String
+Public sv As String
+Public sb As String
+Public es As String
+Public fm As String
+Public fs As String
+Public vd As String
+Public xr As String
+Public yr As String
+Public vs As String
+Public fsk As String
+Public bl As String
+Public blu As String
+Public stre As String
+Public asv As String
+Public scanl As String
+Public blur As String
+Public nfi As String
+Public sfi As String
+Public sfx As String
+Public sfy As String
+Public sfxf As String
+Public sfyf As String
+Public fsgx As String
+Public pdsl As String
+Public eace As String
+Public psgr As String
+Public vpsg As String
+Public vadpcm As String
+Public vcdda As String
+Public alf As String
+Public in_pce1 As String
+Public in_pce2 As String
+Public cpuFX As String
+Public bilCHR As String
+Public nslFX As String
+Public egg As String
+Public ndsl As String
+Public n106 As String
+Public nPAL As String
+Public ncar As String
+Public fepd As String
+Public Pntsc As String
+Public nesdev As String
+Public vb3dm As String
+Public vbpreset As String
+Public vbcpu As String
+Public Lcolor As String
+Public Rcolor As String
+Public vbpar As String
+Public vb3rev As String
+Public lngpc As String
+Public wday As String
+Public wmonth As String
+Public wyear As String
+Public wsex As String
+Public wlang As String
+Public wname As String
+Public wredp As String
+Public lredp As String
+Public lalp As String
+Public mcar As String
+Public mer As String
+Public mdip1 As String
+Public mdip2 As String
+Public emop1 As String
+Public emop2 As String
+Public sdip1 As String
+Public sdip2 As String
+Public scar As String
+Public spurq As String
+Public pdip1 As String
+Public pdip2 As String
+Public autoPSX As String
+Public dPSXreg As String
+Public multiPSX As String
+Public memPSX As String
+Public sysGB As String
+Public Saturn As String
+
+Public nrom As String
+Public rsound As String
+Public rmovie As String
+Public CusPar As String
+
+Public confile As Integer
+Public tfolder As String
+Public zipfile As String
+Public switch As Integer
+Public stringaimg As String
+
+Private l_s As Integer
+Private t_pce As String
+Private t_snes As String
+Private pid As Integer
+Private dpa As String
+Private SpMod As String
+
+Public command1 As String
+Public command2 As String
+
+Public GLog As String
+Public MedV As Integer
+
+Public Sub _new()
+
+End
+
+
+Public Sub assegna()
+Dim bGBA As String
+rom = " " & Chr(34) & textbox1.text & Chr(34)
+console = " -" & ComboBox1.text & "."
+
+If CheckBox17.value = True And textbox4.text <> "" Then
+bgba = textbox4.text
+Else
+bgba = ""
+End If
+
+bios = " -gba.bios " & Chr(34) & bGBA & Chr(34) &
+" -md.cdbios " & Chr(34) & textbox5.text & Chr(34) &
+" -pcfx.bios " & Chr(34) & textbox2.text & Chr(34) &
+" -psx.bios_" & combobox37.text & " " & Chr(34) & textbox6.text & Chr(34) &
+" -pce.cdbios " & Chr(34) & textbox3.text & Chr(34) & " -pce_fast.cdbios " & Chr(34) & textbox3.text & Chr(34) 
+
+sd = " -sound.driver " & ComboBox6.text
+sr = " -sound.rate " & ComboBox2.text
+sv = " -sound.volume " & Slider1.Value
+sb = " -sound.buffer_time " & Slider2.Value
+
+If CheckBox1.value = True Then
+es = " -sound 1"
+Else
+es = " -sound 0"
+End If
+
+If CheckBox2.Value = True Then
+fm = console & "forcemono 1"
+Else If CheckBox2.Value = False Then
+fm = console & "forcemono 0"
+End If
+
+If combobox1.text = "nes" Or combobox1.text = "lynx" Then fm = ""
+
+If CheckBox3.value = True And TextBox8.text <> "" And TextBox9.text <> "" Then
+xr = console & "xres " & Trim(TextBox8.text)
+yr = console & "yres " & Trim(TextBox9.text)
+Else
+If Len(ComboBox3.text) = 7 Or Len(ComboBox3.text) = 8 Then l_s = 3
+If Len(ComboBox3.text) = 9 Then l_s = 4
+xr = console & "xres " & Left(ComboBox3.text, 4)
+yr = console & "yres " & Right(ComboBox3.text, l_s)
+If ComboBox3.text = "desktop" Then
+  yr = console & "yres " & Desktop.Height
+  xr = console & "xres " & Desktop.Width
+Endif
+End If
+
+vd = " -video.driver " & ComboBox4.text
+
+If CheckBox6.Value = True Then
+vs = " -video.glvsync 1 -video.blit_timesync 1"
+Else
+vs = " -video.glvsync 0 -video.blit_timesync 0"
+End If
+
+If CheckBox7.Value = True Then
+fsk = " -video.frameskip 1"
+Else
+fsk = " -video.frameskip 0"
+End If
+
+bl = console & "videoip " & combobox39.text
+
+If CheckBox9.Value = True Then
+blu = console & "tblur 1" & console & "tblur.accum 1"
+Else
+blu = console & "tblur 0" & console & "tblur.accum 0"
+End If
+
+nfi = console & "special " & combobox7.Text
+sfi = console & "pixshader " & combobox8.Text
+
+Stre = console & "stretch " & ComboBox5.Text
+
+If CheckBox5.value = True Then
+fs = " -video.fs 1"
+Else
+fs = " -video.fs 0"
+End If
+
+If CheckBox10.value = True Then
+asv = " -autosave 1"
+Else
+asv = " -autosave 0"
+End If
+
+scanl = console & "scanlines " & Slider4.value
+blur = console & "tblur.accum.amount " & Slider5.value
+
+sfx = console & "xscale " & combobox9.Text
+sfy = console & "yscale " & combobox10.Text
+sfxf = console & "xscalefs " & combobox11.Text
+sfyf = console & "yscalefs " & combobox12.Text
+
+CusPar = " " & TextBox20.text
+
+'Sezione pccd pcfx
+
+If combobox1.text = "pce" Then
+t_pce = "pce"
+Else If combobox1.text = "pce_fast" Then
+t_pce = "pce_fast"
+Else
+t_pce = ""
+End If
+
+If t_pce <> "" Then
+If CheckBox12.value = True
+fsgx = " -" & t_pce & ".forcesgx 1"
+Else If CheckBox12.value = False
+fsgx = " -" & t_pce & ".forcesgx 0"
+End If
+
+If CheckBox12.value = True Then
+eace = " -" & t_pce & ".arcadecard 1"
+Else
+eace = " -" & t_pce & ".arcadecard 0"
+End If
+
+If CheckBox13.value = True Then
+pdsl = " -" & t_pce & ".nospritelimit 1"
+Else
+pdsl = " -" & t_pce & ".nospritelimit 0"
+End If
+
+psgr = " -pce.psgrevision " & combobox15.text
+vpsg = " -" & t_pce & ".cdpsgvolume " & Slider6.Value
+vadpcm = " -" & t_pce & ".adpcmvolume " & Slider7.Value
+vcdda = " -" & t_pce & ".cddavolume " & Slider8.Value
+
+If CheckBox15.Enabled = True Then
+If CheckBox15.Value = True Then
+Alf = " -" & t_pce & ".p 1"
+Else
+Alf = " -" & t_pce & ".adpcmlp 0"
+End If
+Endif
+
+in_pce1 = " -" & t_pce & ".input.port1 " & ComboBox13.Text
+in_pce2 = " -" & t_pce & ".input.port2 " & ComboBox14.Text
+End If
+
+cpuFX = " -pcfx.cpu_emulation " & combobox40.text
+If checkbox8.value = True Then
+  nslfx = " -pcfx.nospritelimit 1"
+  Else
+  nslfx = " -pcfx.nospritelimit 0" 
+Endif
+If checkbox36.value = True Then
+  bilCHR = " -pcfx.rainbow.chromaip 1"
+  Else
+  bilCHR = " -pcfx.rainbow.chromaip 0" 
+Endif
+
+'sezione Game Boy
+'
+sysGB = " -gb.system_type " & ComboBox38.text
+
+'sezione NES
+
+If CheckBox18.value = True And TextBox7.text <> "" Then
+egg = " -nes.gg 1 -nes.ggrom " & Chr(34) & TextBox7.text & Chr(34)
+Else
+egg = " -nes.gg 0"
+End If
+
+If CheckBox19.value = True Then
+ndsl = " -nes.no8lim 1"
+Else
+ndsl = " -nes.no8lim 0"
+End If
+
+If CheckBox20.value = True Then
+n106 = " -nes.n106bs 1"
+Else
+n106 = " -nes.n106bs 0"
+End If
+
+If CheckBox21.value = True Then
+nPAL = " -nes.pal 1"
+Else
+nPAL = " -nes.pal 0"
+End If
+
+If CheckBox39.value = True Then
+ncar = " -nes.correct_aspect 1"
+Else
+ncar = " -nes.correct_aspect 0"
+End If
+
+fepd = " -nes.input.fcexp " & combobox18.text
+If combobox19.text = "disabled" Then
+Pntsc = " -nes.ntscblitter 0 -nes.ntsc.preset " & combobox19.text
+Else
+Pntsc = " -nes.ntscblitter 1 -nes.ntsc.preset " & combobox19.text
+End If
+nesdev = " -nes.input.port" & combobox16.text & " " & combobox17.text
+
+'sezione neogeo pocket
+
+If RadioButton3.Value = True Then
+lngpc = " -ngp.language english"
+Else If RadioButton4.Value = True Then
+lngpc = " -ngp.language Japanese"
+End If
+
+'sezione wonderswan
+
+wday = " -wswan.bday " & combobox22.Text
+wmonth = " -wswan.bmonth " & combobox21.Text
+wyear = " -wswan.byear " & combobox20.Text
+wname = " -wswan.name " & textbox21.Text
+If RadioButton1.value = True Then
+wsex = " -wswan.sex m"
+Else If RadioButton2.value = True Then
+wsex = " -wswan.sex f"
+End If
+wlang = " -wswan.language " & combobox34.text
+
+If CheckBox22.Enabled = True Then
+If CheckBox22.value = True Then
+wredp = " -wswan.rotateinput 1"
+Else
+wredp = " -wswan.rotateinput 0"
+End If
+End If
+
+'sezione lynx
+
+If CheckBox23.value = True Then
+lredp = " -lynx.rotateinput 1"
+Else
+lredp = " -lynx.rotateinput 0"
+End If
+
+If CheckBox24.value = True Then
+lalp = " -lynx.lowpass 1"
+Else
+lalp = " -lynx.lowpass 0"
+End If
+
+'sezione virtual boy
+
+vb3dm = " -vb.3dmode " & combobox23.Text
+vbpreset = " -vb.anaglyph.preset " & combobox24.Text
+vbcpu = " -vb.cpu_emulation " & combobox25.Text
+
+If CheckBox23.value = True Then
+vbpar = " -vb.disable_parallax 1"
+Else
+vbpar = " -vb.disable_parallax 0"
+End If
+
+If CheckBox23.value = True Then
+vb3rev = " -vb.3dreverse 1"
+Else
+vb3rev = " -vb.3dreverse 0"
+End If
+
+'sezione megadrive
+
+If CheckBox27.value = True Then
+mcar = " -md.correct_aspect 1"
+Else
+mcar = " -md.correct_aspect 0"
+End If
+
+mer = " -md.region " & combobox26.text & " -md.reported_region " & combobox26.text
+mdip1 = " -md.input.port1 " & combobox27.text
+mdip2 = " -md.input.port2 " & combobox28.text
+
+'sezione superNES
+
+If t_snes <> "" Then
+If combobox1.text = "snes" Then
+t_snes = "snes"
+Else If combobox1.text = "snes_faust" Then
+t_snes = "snes_faust"
+Else
+t_snes = ""
+End If
+
+If CheckBox28.value = True Then
+emop1 = " -snes.input.port1.multitap 1"
+Else
+emop1 = " -snes.input.port1.multitap 0"
+End If
+
+If CheckBox29.value = True Then
+emop2 = " -snes.input.port2.multitap 1"
+Else
+emop2 = " -snes.input.port2.multitap 0"
+End If
+
+sdip1 = " -" & t_snes & ".input.port1 " & combobox29.Text
+sdip2 = " -" & t_snes & ".input.port2 " & combobox30.Text
+
+If CheckBox38.value = True Then
+scar = " -" & t_snes & ".correct_aspect 1"
+Else
+scar = " -" & t_snes & ".correct_aspect 0"
+End If
+End If
+
+'sezione Sony psx
+
+spurq = " -psx.spu.resamp_quality " & Slider9.Value
+pdip1 = " -psx.input.port1 " & ComboBox31.Text
+pdip2 = " -psx.input.port2 " & ComboBox32.Text
+If CheckBox35.value = True Then
+autopsx = " -psx.region_autodetect 1"
+Else
+autopsx = " -psx.region_autodetect 0"
+End If
+If CheckBox32.value = True Then
+multiPSX = " -psx.input.port" & combobox35.text & ".multitap  1"
+Else
+multiPSX = " -psx.input.port" & combobox35.text & ".multitap  0"
+End If
+If CheckBox34.value = True Then
+memPSX = " -psx.input.port" & combobox36.text & ".multitap  1"
+Else
+memPSX = " -psx.input.port" & combobox36.text & ".multitap  0"
+End If
+
+'sezione Saturn
+
+Saturn = " -ss.region_autodetect " & checkbox42.Value & " -ss.region_default " & combobox45.text & " -ss.scsp.resamp_quality " & slider10.value & 
+" -ss.input.port1 " & combobox41.text & " -ss.input.port2 " & combobox42.text & " -ss.smpc.autortc.lang " & combobox44.text & 
+" -ss.correct_aspect " & checkbox43.value & " -ss.midsync " & checkbox43.value
+
+'sezione registrazione
+If CheckBox31.Value = True And textbox22.text <> "" Then
+rsound = " -soundrecord " & Chr(34) & textbox22.text & Chr(34) & "/" & Chr(34) & textbox23.text & Chr(34) & ".wav"
+End If
+
+If CheckBox33.Value = True And textbox24.text <> "" Then
+rmovie = " -qtrecord " & Chr(34) & textbox24.text & Chr(34) & "/" & Chr(34) & textbox23.text & ".mov" & Chr(34) & " -qtrecord.vcodec " & combobox33.text
+End If
+
+End
+
+Public Sub Button10_Click()
+
+  textbox2.text = "pcfx.rom"
+  textbox3.text = "syscard3.pce"
+  textbox4.text = "gbabios.bin"
+  textbox5.text = "us_scd1_9210.bin"
+  textbox6.text = "scph5501.bin"
+
+End
+
+Public Sub ComboBox1_Change()
+Dim cs As String
+If ComboBox1.text = "" Then
+Else
+cs = Upper$(ComboBox1.Text) & ".gif"
+PictureBox1.Picture = Picture.Load(cs)
+End If
+system_tip
+
+If ComboBox1.text = "pce" Or ComboBox1.text = "pce_fast" Or ComboBox1.text = "pcfx" Then
+  checkbox37.enabled = True
+  Else 
+  checkbox37.enabled = False
+  checkbox37.value = False
+Endif
+
+End
+
+Public Sub Button1_Click()
+Dialog.Title = "Choose a rom to emulate"
+Dialog.Filter = ["*.*", "All file"]
+DeFolder
+If Dialog.OpenFile() Then Return
+nrom = File.BaseName(Dialog.Path)
+zipfile = File.BaseName(Dialog.Path)
+textbox1.text = Dialog.Path
+Est_file = LCase(File.Ext(Dialog.Path))
+confile = 0
+ver_rom
+LRom.pop_list
+snaps.pop_snaps
+Snaps.snaps_view
+checkbox37.value = False
+End
+
+
+Public Sub Button4_Click()
+  Dialog.title = "Choose a " & label2.text & " bios"
+  Dialog.Filter = ["*.bin;*.rom;*.zip", "All supported files"]
+  If Dialog.OpenFile() Then Return
+  textbox2.text = Dialog.Path
+End
+
+Public Sub Button5_Click()
+
+  Dialog.title = "Choose a " & label3.text & " bios"
+  Dialog.Filter = ["*.pce;*.bin;*.rom;*.zip", "All supported files"]
+  If Dialog.OpenFile() Then Return
+  textbox3.text = Dialog.Path
+
+End
+
+Public Sub Button6_Click()
+
+  Dialog.title = "Choose a " & CheckBox17.text & " bios"
+    Dialog.Filter = ["*.bin;*.rom;*.zip", "All supported files"]
+  If Dialog.OpenFile() Then Return
+  textbox4.text = Dialog.Path
+
+End
+
+Public Sub Button7_Click()
+
+  Dialog.title = "Choose a " & label5.text & " bios"
+  Dialog.Filter = ["*.bin;*.rom;*.zip", "All supported files"]
+  If Dialog.OpenFile() Then Return
+  textbox5.text = Dialog.Path
+
+End
+
+Public Sub Button8_Click()
+
+  Dialog.title = "Choose a " & label6.text & " bios"
+    Dialog.Filter = ["*.bin;*.rom;*.zip", "All supported files"]
+  If Dialog.OpenFile() Then Return
+  textbox6.text = Dialog.Path
+
+End
+
+Public Sub Button12_Click()
+
+  Dialog.title = "Choose a default rom directory"
+  If Dialog.SelectDirectory() Then Return
+  textbox10.text = Dialog.Path
+
+End
+
+Public Sub Button13_Click()
+
+  Dialog.title = "Choose a " & label25.text & " rom directory"
+  If Dialog.SelectDirectory() Then Return
+  textbox11.text = Dialog.Path
+
+End
+
+Public Sub Button14_Click()
+
+  Dialog.title = "Choose a " & label26.text & " rom directory"
+  If Dialog.SelectDirectory() Then Return
+  textbox12.text = Dialog.Path
+
+End
+
+Public Sub Button15_Click()
+
+  Dialog.title = "Choose a " & label27.text & " rom directory"
+  If Dialog.SelectDirectory() Then Return
+  textbox13.text = Dialog.Path
+
+End
+
+Public Sub Button16_Click()
+
+  Dialog.title = "Choose a " & label28.text & " rom directory"
+  If Dialog.SelectDirectory() Then Return
+  textbox14.text = Dialog.Path
+
+End
+
+Public Sub Button17_Click()
+
+  Dialog.title = "Choose a " & label29.text & " rom directory"
+  If Dialog.SelectDirectory() Then Return
+  textbox15.text = Dialog.Path
+
+End
+
+Public Sub Button18_Click()
+
+  Dialog.title = "Choose a " & label30.text & " rom directory"
+  If Dialog.SelectDirectory() Then Return
+  textbox16.text = Dialog.Path
+
+End
+
+Public Sub Button19_Click()
+
+Dialog.title = "Choose a " & label31.text & " rom directory"
+  If Dialog.SelectDirectory() Then Return
+  textbox17.text = Dialog.Path
+
+End
+
+Public Sub Button20_Click()
+
+  Dialog.title = "Choose a " & label32.text & " rom directory"
+  If Dialog.SelectDirectory() Then Return
+  textbox18.text = Dialog.Path
+
+End
+
+Public Sub Button21_Click()
+
+  Dialog.title = "Choose a " & label33.text & " rom directory"
+  If Dialog.SelectDirectory() Then Return
+  textbox19.text = Dialog.Path
+End
+
+Public Sub Button3_Click()
+avvia
+End
+
+Public Sub avvia()
+
+Shell "killall mednafen" Wait
+
+If ComboBox1.text = "" Then
+Message.Warning("You must select a console to emulate.", "Close")
+ComboBox1.SetFocus
+Return
+Else
+assegna
+
+If CheckBox16.value = True Then
+dpa = "pasuspender -- mednafen $1 -sound.device sexyal-literal-default"
+ComboBox6.text = "alsa"
+Else
+dpa = "mednafen -sound.device default"
+End If
+
+Select Case combobox1.text
+  Case "pce"
+    SpMod = " -pce.enable 1 -pce_fast.enable 0"
+      Case "pce_fast"
+   SpMod = " -pce_fast.enable 1 -pce.enable 0"
+      Case "snes"
+   SpMod = " -snes.enable 1 -snes_faust.enable 0"
+      Case "snes_faust"
+   SpMod = " -snes_faust.enable 1 -snes.enable 0"
+  Case Else
+    
+End Select
+
+command1 = dpa & SpMod & sd & sr & sv & sb & es & fm & xr & yr & xr & yr & vd & fs & vs & fsk &
+bl & blu & stre & asv & scanl & blur & nfi & sfi & sfx & sfy & sfxf & sfyf &
+fsgx & eace & pdsl & psgr & vpsg & vcdda & vadpcm & alf & in_pce1 & in_pce2 & sysGB &
+cpufx & nslFX & bilCHR & autofire &
+vbpreset & vb3dm & vbcpu & lcolor & rcolor & vbpar & vb3rev &
+egg & ndsl & n106 & nPAL & fepd & Pntsc & nesdev &
+lngpc
+
+command2 = wname & wday & wmonth & wyear & wsex & wredp & wlang &
+lredp & lalp &
+mcar & mer & mdip1 & mdip2 &
+emop1 & emop2 & sdip1 & sdip2 & scar &
+spurq & pdip1 & pdip2 & autopsx & dPSXreg & multiPSX & memPSX & Saturn &
+rsound & rmovie
+
+If checkbox37.value = True Then
+  rom = " -loadcd " & combobox1.text
+Endif
+
+If CheckBox30.value = True Then
+TabStrip1.index = 6
+Shell command1 & command2 & CusPar & bios & rom To TextArea1.text
+Else
+Shell command1 & command2 & CusPar & bios & rom
+End If
+
+End If
+End
+
+Public Sub ParseLog()
+Dim Elt As String[]
+Dim Sb As String[]
+
+Shell "mednafen " To GLog
+
+Elt = Split(GLog, Chr$(10))
+
+sb = Split(Elt[0], " ")
+label71.text = Trim(sb[1] & " " & sb[2])
+medv = Val(Replace(sb[2], ".", ""))
+
+If MedV < 0949 Then
+  CheckBox15.Enabled = True
+  CheckBox22.Enabled = True
+Else
+CheckBox15.Enabled = False
+CheckBox22.Enabled = False
+Endif
+
+End
+
+
+Public Sub Form_Open()
+Dim soutput As String
+Dim i As Integer
+
+For i = 0 To 150
+combobox20.add(1900 + i, i)
+Next
+For i = 1 To 12
+combobox21.add(i, i)
+Next
+For i = 1 To 31
+combobox22.add(i, i)
+Next
+
+system_tip
+
+Me.TextBox2.text = Settings["PCFX_B", Me.TextBox2.text]
+Me.TextBox3.text = Settings["PCCD_B", Me.TextBox3.text]
+Me.TextBox4.text = Settings["GBA_B", Me.TextBox4.text]
+Me.TextBox5.text = Settings["MCD_B", Me.TextBox5.text]
+Me.TextBox6.text = Settings["PSX_B", Me.TextBox6.text]
+
+Me.ComboBox1.text = Settings["Console", Me.ComboBox1.text]
+Me.TextBox1.text = Settings["RomName", Me.TextBox1.text]
+Me.ComboBox6.text = Settings["SDriver", Me.ComboBox6.text]
+Me.ComboBox2.text = Settings["PRate", Me.ComboBox2.text]
+Me.Slider1.value = Settings["SVolume", Me.Slider1.value]
+Me.Slider2.value = Settings["SBuffer", Me.Slider2.value]
+Me.Slider3.value = Settings["Autofire", Me.Slider3.value]
+Me.CheckBox1.value = Settings["ESound", Me.CheckBox1.value]
+Me.CheckBox2.value = Settings["FMono", Me.CheckBox2.value]
+Me.ComboBox3.text = Settings["VPresets", Me.ComboBox3.text]
+Me.ComboBox4.text = Settings["VDriver", Me.ComboBox4.text]
+Me.CheckBox3.value = Settings["VCustom", Me.CheckBox3.value]
+Me.TextBox8.text = Settings["VxCustom", Me.TextBox8.text]
+Me.TextBox9.text = Settings["VyCustom", Me.TextBox9.text]
+Me.CheckBox5.value = Settings["FScreen", Me.CheckBox5.value]
+Me.CheckBox6.value = Settings["VSync", Me.CheckBox6.value]
+Me.CheckBox7.value = Settings["FSkip", Me.CheckBox7.value]
+Me.combobox39.text = Settings["Bilinear", Me.combobox39.text]
+Me.CheckBox9.value = Settings["Blur", Me.CheckBox9.value]
+Me.CheckBox10.value = Settings["Autosave", Me.CheckBox10.value]
+Me.ComboBox5.text = Settings["Stretch", Me.ComboBox5.text]
+
+Me.Slider4.value = Settings["Scanlines", Me.Slider4.value]
+Me.Slider5.value = Settings["VBlur", Me.Slider5.value]
+Me.ComboBox7.text = Settings["NFilter", Me.ComboBox7.text]
+Me.ComboBox8.text = Settings["SFilter", Me.ComboBox8.text]
+Me.ComboBox9.text = Settings["XScale", Me.ComboBox9.text]
+Me.ComboBox10.text = Settings["YScale", Me.ComboBox10.text]
+Me.ComboBox11.text = Settings["XScaleF", Me.ComboBox11.text]
+Me.ComboBox12.text = Settings["YScaleF", Me.ComboBox12.text]
+
+Me.CheckBox11.value = Settings["EDRPath", Me.CheckBox11.value]
+Me.TextBox10.text = Settings["DRPath", Me.TextBox10.text]
+Me.TextBox11.text = Settings["DRgba", Me.TextBox11.text]
+Me.TextBox12.text = Settings["DRgg", Me.TextBox12.text]
+Me.TextBox13.text = Settings["DRsnes", Me.TextBox13.text]
+Me.TextBox14.text = Settings["DRlynx", Me.TextBox14.text]
+Me.TextBox15.text = Settings["DRmdrive", Me.TextBox15.text]
+Me.TextBox16.text = Settings["DRneo", Me.TextBox16.text]
+Me.TextBox17.text = Settings["DRnes", Me.TextBox17.text]
+Me.TextBox18.text = Settings["DRpce", Me.TextBox18.text]
+Me.TextBox19.text = Settings["DRwswan", Me.TextBox19.text]
+
+Me.CheckBox12.value = Settings["FSgrafx", Me.CheckBox12.value]
+Me.CheckBox13.value = Settings["EcardE", Me.CheckBox13.value]
+Me.CheckBox14.value = Settings["PCsl", Me.CheckBox14.value]
+Me.ComboBox15.text = Settings["Tpsg", Me.ComboBox15.text]
+Me.Slider6.value = Settings["Vpsg", Me.Slider6.value]
+Me.Slider7.value = Settings["Vadpcm", Me.Slider7.value]
+Me.Slider8.value = Settings["Vcdda", Me.Slider8.value]
+Me.ComboBox13.text = Settings["PCdi1", Me.ComboBox13.text]
+Me.ComboBox14.text = Settings["PCdi2", Me.ComboBox14.text]
+Me.CheckBox15.value = Settings["EadpcmLF", Me.CheckBox15.value]
+
+Me.CheckBox8.value = Settings["nlsFX", Me.CheckBox8.value]
+Me.checkbox36.value = Settings["bilCHR", Me.checkbox36.value]
+Me.ComboBox10.text = Settings["cpuFX", Me.ComboBox10.text]
+
+Me.ComboBox38.text = Settings["sysGB", Me.ComboBox38.text]
+
+Me.CheckBox18.value = Settings["NEgg", Me.CheckBox18.value]
+Me.CheckBox19.value = Settings["Ndsl", Me.CheckBox19.value]
+Me.CheckBox20.value = Settings["N106", Me.CheckBox20.value]
+Me.CheckBox21.value = Settings["NPal", Me.CheckBox21.value]
+Me.CheckBox39.value = Settings["NCar", Me.CheckBox39.value]
+Me.ComboBox17.text = Settings["Npad", Me.ComboBox17.text]
+Me.ComboBox18.text = Settings["Fexp", Me.ComboBox18.text]
+Me.ComboBox19.text = Settings["Nntsc", Me.ComboBox19.text]
+
+' [GB2:BCOL] ME.Button23.BackColor = Settings["lcol", ME.Button23.BackColor]
+' [GB2:BCOL] ME.Button23.BackColor = Settings["lcol", ME.Button23.Background]
+Me.Button23.Background = Settings["lcol", Me.Button23.Background]
+' [GB2:BCOL] ME.Button24.BackColor = Settings["rcol", ME.Button24.BackColor]
+' [GB2:BCOL] ME.Button24.BackColor = Settings["rcol", ME.Button24.Background]
+Me.Button24.Background = Settings["rcol", Me.Button24.Background]
+Me.ComboBox23.text = Settings["3dmode", Me.ComboBox23.text]
+Me.ComboBox24.text = Settings["3dpreset", Me.ComboBox24.text]
+Me.ComboBox25.text = Settings["vbCPU", Me.ComboBox25.text]
+Me.CheckBox23.value = Settings["vbparallax", Me.CheckBox23.value]
+Me.CheckBox24.value = Settings["vbreverse", Me.CheckBox24.value]
+
+Me.CheckBox22.value = Settings["wrdpad", Me.CheckBox22.value]
+
+Me.CheckBox25.value = Settings["lrdpad", Me.CheckBox25.value]
+
+Me.CheckBox26.value = Settings["lalp", Me.CheckBox26.value]
+
+Me.CheckBox27.value = Settings["Gcar", Me.CheckBox27.value]
+Me.ComboBox26.text = Settings["MEmur", Me.ComboBox26.text]
+Me.ComboBox27.text = Settings["Mdi1", Me.ComboBox27.text]
+Me.ComboBox28.text = Settings["Mdi2", Me.ComboBox28.text]
+
+Me.CheckBox28.value = Settings["Emop1", Me.CheckBox28.value]
+Me.CheckBox29.value = Settings["Emop2", Me.CheckBox29.value]
+Me.ComboBox29.text = Settings["Sdi1", Me.ComboBox27.text]
+Me.ComboBox30.text = Settings["Sdi2", Me.ComboBox28.text]
+Me.CheckBox38.value = Settings["scar", Me.CheckBox38.value]
+
+Me.Slider9.value = Settings["SPUr", Me.Slider9.value]
+Me.ComboBox31.text = Settings["SPdi1", Me.ComboBox31.text]
+Me.ComboBox32.text = Settings["SPdi2", Me.ComboBox32.text]
+Me.CheckBox35.value = Settings["autoPSX", Me.CheckBox35.value]
+Me.ComboBox37.text = Settings["regPSX", Me.ComboBox37.text]
+
+Me.TextBox20.text = Settings["CustomPar", Me.TextBox20.text]
+
+Me.TextBox22.text = Settings["RSound", Me.TextBox22.text]
+Me.TextBox24.text = Settings["RMovie", Me.TextBox24.text]
+
+Me.Center
+
+If Exist("/usr/games/mednafen") Or Exist("/usr/local/bin/mednafen") Then
+  ParseLog
+Else
+Message.Info("Mednafen is not installed in this computer" & "\n" & "Please install Mednafen 0.9.19 to run this GUI", "Close")
+Me.Close
+End If
+
+If Exist("/usr/lib/p7zip/7z") And Exist("/usr/lib/p7zip/Codecs/Rar.so") Then
+Else
+Message.Info("7zip/rar library is not installed in this computer" & "\n" & "Now i will install 7zip/rar library to run this GUI", "Close")
+Exec ["gksudo", "apt-get", "install", "p7zip", "p7zip-full", "p7zip-rar"] Wait
+  If Exist("/usr/lib/p7zip/7z") And Exist("/usr/lib/p7zip/Codecs/Rar.so") Then
+  Message.Info("Well done, all dipendencies are installed", "Close")
+  Else
+  Message.Info("p7zip , p7zip-full and p7zip-rar libraries can not be installed automatically" & "\n" & "Please try to install them manually", " CLOSE ")
+  End If
+  End If
+End
+
+Public Sub Form_Close()
+Settings["PCFX_B"] = Me.TextBox2.text
+Settings["PCCD_B"] = Me.TextBox3.text
+Settings["GBA_B"] = Me.TextBox4.text
+Settings["MCD_B"] = Me.TextBox5.text
+Settings["PSX_B"] = Me.TextBox6.text
+
+Settings["Console"] = Me.ComboBox1.text
+Settings["RomName"] = Me.TextBox1.text
+Settings["SDriver"] = Me.ComboBox6.text
+Settings["PRate"] = Me.ComboBox2.text
+Settings["SVolume"] = Me.Slider1.value
+Settings["SBuffer"] = Me.Slider2.value
+Settings["Autofire"] = Me.Slider3.value
+Settings["ESound"] = Me.CheckBox1.value
+Settings["FMono"] = Me.CheckBox2.value
+Settings["VPresets"] = Me.ComboBox3.text
+Settings["VDriver"] = Me.ComboBox4.text
+Settings["VCustom"] = Me.CheckBox3.value
+Settings["VxCustom"] = Me.TextBox8.text
+Settings["VyCustom"] = Me.TextBox9.text
+Settings["FScreen"] = Me.CheckBox5.value
+Settings["VSync"] = Me.CheckBox6.value
+Settings["FSkip"] = Me.CheckBox7.value
+Settings["Bilinear"] = Me.combobox39.text
+Settings["Blur"] = Me.CheckBox9.value
+Settings["Autosave"] = Me.CheckBox10.value
+Settings["Stretch"] = Me.ComboBox5.text
+
+Settings["Scanlines"] = Me.Slider4.Value
+Settings["VBlur"] = Me.Slider5.Value
+Settings["NFilter"] = Me.ComboBox7.text
+Settings["SFilter"] = Me.ComboBox8.text
+Settings["XScale"] = Me.ComboBox9.text
+Settings["YScale"] = Me.ComboBox10.text
+Settings["XScaleF"] = Me.ComboBox11.text
+Settings["YScaleF"] = Me.ComboBox12.text
+Settings["CustomPar"] = Me.TextBox20.text
+
+Settings["EDRPath"] = Me.CheckBox11.value
+Settings["DRPath"] = Me.TextBox10.text
+Settings["DRgba"] = Me.TextBox11.text
+Settings["DRgg"] = Me.TextBox12.text
+Settings["DRsnes"] = Me.TextBox13.text
+Settings["DRlynx"] = Me.TextBox14.text
+Settings["DRmdrive"] = Me.TextBox15.text
+Settings["DRneo"] = Me.TextBox16.text
+Settings["DRnes"] = Me.TextBox17.text
+Settings["DRpce"] = Me.TextBox18.text
+Settings["DRwswan"] = Me.TextBox19.text
+
+Settings["FSgrafx"] = Me.CheckBox12.value
+Settings["EcardE"] = Me.CheckBox13.value
+Settings["PCsl"] = Me.CheckBox14.value
+Settings["Tpsg"] = Me.ComboBox15.text
+Settings["Vpsg"] = Me.Slider6.value
+Settings["Vadpcm"] = Me.Slider7.value
+Settings["Vcdda"] = Me.Slider8.value
+Settings["PCdi1"] = Me.ComboBox13.text
+Settings["PCdi2"] = Me.ComboBox14.text
+Settings["EadpcmLF"] = Me.CheckBox15.value
+
+Settings["nlsFX"] = Me.CheckBox8.value
+Settings["bilCHR"] = Me.checkbox36.value
+Settings["cpuFX"] = Me.ComboBox10.text
+
+Settings["sysGB"] = Me.ComboBox38.text
+
+Settings["NEgg"] = Me.CheckBox18.value
+Settings["Ndsl"] = Me.CheckBox19.value
+Settings["N106"] = Me.CheckBox20.value
+Settings["NPal"] = Me.CheckBox21.value
+Settings["NCar"] = Me.CheckBox39.value
+Settings["Npad"] = Me.ComboBox17.text
+Settings["Fexp"] = Me.ComboBox18.text
+Settings["Nntsc"] = Me.ComboBox19.text
+
+' [GB2:BCOL] Settings["lcol"] = ME.Button23.BackColor
+Settings["lcol"] = Me.Button23.Background
+' [GB2:BCOL] Settings["rcol"] = ME.Button24.BackColor
+Settings["rcol"] = Me.Button24.Background
+Settings["3dmode"] = Me.ComboBox23.text
+Settings["3dpreset"] = Me.ComboBox24.text
+Settings["vbCPU"] = Me.ComboBox25.text
+Settings["vbparallax"] = Me.CheckBox23.value
+Settings["vbreverse"] = Me.CheckBox24.value
+
+Settings["wrdpad"] = Me.CheckBox22.value
+
+Settings["lrdpad"] = Me.CheckBox25.value
+
+Settings["lalp"] = Me.CheckBox26.value
+
+Settings["Gcar"] = Me.CheckBox27.value
+Settings["MEmur"] = Me.ComboBox26.text
+Settings["Mdi1"] = Me.ComboBox27.text
+Settings["Mdi2"] = Me.ComboBox28.text
+
+Settings["Emop1"] = Me.CheckBox28.value
+Settings["Emop2"] = Me.CheckBox29.value
+Settings["Sdi1"] = Me.ComboBox27.text
+Settings["Sdi2"] = Me.ComboBox28.text
+Settings["scar"] = Me.CheckBox38.value
+
+Settings["SPUr"] = Me.Slider9.value
+Settings["SPdi1"] = Me.ComboBox31.text
+Settings["SPdi2"] = Me.ComboBox32.text
+Settings["autoPSX"] = Me.CheckBox35.value
+Settings["regPSX"] = Me.ComboBox37.text
+
+Settings["RSound"] = Me.TextBox22.text
+Settings["RMovie"] = Me.TextBox24.text
+
+LRom.Close
+Snaps.close
+End
+
+Public Sub ComboBox7_Change()
+If ComboBox7.text <> "none" Then combobox8.text = "none"
+End
+
+Public Sub ComboBox8_Change()
+If ComboBox8.text <> "none" Then combobox7.text = "none"
+End
+
+Public Sub binding()
+If CheckBox4.value = True Then
+combobox10.Enabled = True
+combobox12.Enabled = True
+combobox10.text = combobox9.Text
+combobox12.text = combobox11.Text
+combobox10.Enabled = False
+combobox12.Enabled = False
+Else
+combobox10.Enabled = True
+combobox12.Enabled = True
+Endif
+End
+
+Public Sub DeFolder()
+Dialog.Path = ""
+If combobox1.text = "gb" And textbox11.text <> "" Then Dialog.Path = textbox11.Text
+If combobox1.text = "gba" And textbox11.text <> "" Then Dialog.Path = textbox11.Text
+If combobox1.text = "gg" And textbox12.text <> "" Then Dialog.Path = textbox12.Text
+If combobox1.text = "sms" And textbox12.text <> "" Then Dialog.Path = textbox12.Text
+If combobox1.text = "snes" And textbox13.text <> "" Then Dialog.Path = textbox13.Text
+If combobox1.text = "lynx" And textbox14.text <> "" Then Dialog.Path = textbox14.Text
+If combobox1.text = "md" And textbox15.text <> "" Then Dialog.Path = textbox15.Text
+If combobox1.text = "ngp" And textbox16.text <> "" Then Dialog.Path = textbox16.Text
+If combobox1.text = "nes" And textbox17.text <> "" Then Dialog.Path = textbox17.Text
+If combobox1.text = "vb" And textbox17.text <> "" Then Dialog.Path = textbox17.Text
+If combobox1.text = "pce" And textbox18.text <> "" Then Dialog.Path = textbox18.Text
+If combobox1.text = "pce_fast" And textbox18.text <> "" Then Dialog.Path = textbox18.Text
+If combobox1.text = "pcfx" And textbox18.text <> "" Then Dialog.Path = textbox18.Text
+If combobox1.text = "wswan" And textbox19.text <> "" Then Dialog.Path = textbox19.Text
+If CheckBox11.value = True And textbox10.Text <> "" Then Dialog.Path = textbox10.Text
+End
+
+    Public Sub ver_rom()
+    
+        If est_file = "gb" Or est_file = "gbc" Then
+            combobox1.text = "gb"
+        Else If est_file = "gg" Then
+            combobox1.text = "gg"
+        Else If est_file = "gba" Or est_file = "gsf" Or est_file = "minigsf" Or est_file = "gsflib" Then
+            combobox1.text = "gba"
+        Else If est_file = "lnx" Then
+            combobox1.text = "lynx"
+        Else If est_file = "smd" Or est_file = "bin" Or est_file = "gen" Or est_file = "32x" Or est_file = "md" Then
+            combobox1.text = "md"
+        Else If est_file = "ngp" Or est_file = "ngc" Or est_file = "npc" Then
+            combobox1.text = "ngp"
+        Else If est_file = "nes" Or est_file = "fds" Or est_file = "nsf" Or est_file = "unf" Or est_file = "nez" Then
+            combobox1.text = "nes"
+        Else If est_file = "pce" Or est_file = "hes" Then
+            combobox1.text = "pce"
+        Else If est_file = "psf" Or est_file = "psf1" Or est_file = "minipsf" Then
+            combobox1.text = "psx"
+        Else If est_file = "sms" Then
+            combobox1.text = "sms"
+        Else If est_file = "smc" Or est_file = "fig" Or est_file = "sfc" Or est_file = "swc" Or est_file = "ufo" Or est_file = "gd3" Or est_file = "gd7" Or est_file = "dx2" Or est_file = "mgd" Or est_file = "mgh" Or est_file = "bs" Or est_file = "st" Then
+            combobox1.text = "snes"
+        Else If est_file = "vb" Or est_file = "vboy" Then
+            combobox1.text = "vb"
+        Else If est_file = "ws" Or est_file = "wsc" Or est_file = "wsr" Then
+            combobox1.text = "wswan"
+        Else If est_file = "cue" Or est_file = "m3u" Or est_file = "toc" Or est_file = "ccd" Then
+          CUE.ShowDIALOG
+        Else If est_file = "zip" Or est_file = "rar" Or est_file = "7z" Then
+romtempfolder
+        Else
+            If confile = 0 Then
+            Message.Warning("You have selected a wrong rom or wrong file", "Cancel")
+            TextBox1.Text = ""
+            Return
+            End If
+        End If
+textbox23.text = nrom
+snaps.nSnaps = nrom & "-0000.png"
+        End
+
+Public Sub ComboBox11_Change()
+binding
+End
+
+Public Sub CheckBox4_Click()
+binding
+End
+
+Public Sub ComboBox9_Change()
+binding
+End
+
+Public Sub Slider1_Change()
+
+  label9.text = "Sound Volume " & Slider1.Value
+
+End
+
+Public Sub Slider2_Change()
+
+  label10.text = "Sound Buffer " & Slider2.Value
+
+End
+
+Public Sub Button11_Click()
+  Slider1.Value = 100
+  Slider2.Value = 32
+End
+
+Public Sub Slider3_Change()
+
+  label14.text = "Set Autofire " & Slider3.Value
+  
+  autofire = " -input.autofirefreq " & Slider3.Value
+
+End
+
+Public Sub Slider4_Change()
+
+    label17.text = "Scanlines " & Slider4.Value
+
+End
+
+Public Sub Slider5_Change()
+
+    label18.text = "Blur " & Slider5.Value
+
+End
+
+Public Sub Slider6_Change()
+
+  label7.text = "PSG Volume " & Slider6.Value
+
+End
+
+Public Sub Slider7_Change()
+
+    label35.text = "ADPCM Volume " & Slider7.Value
+
+End
+
+Public Sub Slider8_Change()
+
+    label36.text = "CD-DA Volume " & Slider8.Value
+
+End
+
+Public Sub Button9_Click()
+
+  Slider6.Value = 100
+  Slider7.Value = 100
+  Slider8.Value = 100
+
+End
+
+Public Sub Button2_Click()
+Try
+  Desktop.Open("/usr/share/doc/mednafen/mednafen.html")
+
+End
+
+'IF CheckBox16.value = TRUE THEN 
+'Embedder1.embed(Desktop.Find("Mednafen")[0])
+'TabStrip1.Index = 5
+'END IF
+
+
+Public Sub Button23_Click()
+Dialog.SelectColor
+' [GB2:BCOL] Button23.BackColor = Dialog.Color
+Button23.Background = Dialog.Color
+lcolor = " -vb.anaglyph.lcolor 0x" & Hex$(Dialog.Color)
+End
+
+Public Sub Button24_Click()
+Dialog.SelectColor
+' [GB2:BCOL] Button24.BackColor = Dialog.Color
+Button24.Background = Dialog.Color
+rcolor = " -vb.anaglyph.rcolor 0x" & Hex$(Dialog.Color)
+End
+
+Public Sub romtempfolder()
+Dim sFile As String
+tfolder = User.Home & "/.tempNafen"
+If Exist(tfolder) Then
+For Each sFile In Dir(tfolder, "*.*")
+Kill tfolder & "/" & sfile
+Next
+extr_zip
+Else
+Mkdir tfolder
+extr_zip
+End If
+End
+
+Public Sub extr_zip()
+ Dim gFile As String
+ confile = 0
+ est_file = ""
+Shell "7z" & " x -o" & User.Home & "/.tempNafen/ " & Chr(34) & textbox1.text & Chr(34) Wait
+For Each gFile In Dir(tfolder, "*.*")
+Est_file = LCase(File.Ext(gfile))
+confile = confile + 1
+ver_rom
+Next
+If confile > 1 Then
+  If LRom.Visible = True Then
+  LRom.pop_list
+  Else
+  LRom.Show
+  End If
+Else
+textbox1.text = tfolder & "/" & gFile
+End If
+End
+
+Public Sub Button25_Click()
+If Exist(User.Home & "/.tempNafen") Then
+  If LRom.Visible = True Then
+  LRom.CLOSE
+  Else
+  LRom.Show
+  End If
+Else
+ Message.Warning("No temp rom are avaiable", "Cancel")
+ End If
+End
+
+Public Sub Slider9_Change()
+label61.text = "SPU Output Resampler Quality " & Slider9.value
+End
+
+Public Sub system_tip()
+Dim ctip As String
+If combobox1.text = "lynx" Then ctip = " Atari Lynx "
+If combobox1.text = "gb" Then ctip = " Nintendo Game Boy "
+If combobox1.text = "gba" Then ctip = " Nintendo Game Boy Advance "
+If combobox1.text = "ngp" Then ctip = " Neo Geo Pocket Color "
+If combobox1.text = "nes" Then ctip = " Nintendo Entraiment System "
+If combobox1.text = "pce" Then ctip = " NEC PC Engine/TurboGrafx "
+If combobox1.text = "pce_fast" Then ctip = " NEC PC Engine/TurboGrafx fast "
+If combobox1.text = "pcfx" Then ctip = " NEC PC-FX "
+If combobox1.text = "gg" Then ctip = " Sega Game Gear "
+If combobox1.text = "md" Then ctip = " Sega Megadrive/Genesis "
+If combobox1.text = "sms" Then ctip = " Sega Master System "
+If combobox1.text = "psx" Then ctip = " Sony PSX "
+If combobox1.text = "snes" Then ctip = " Super Nintendo "
+If combobox1.text = "vb" Then ctip = " Nintendo Virtual Boy "
+If combobox1.text = "wswan" Then ctip = " Bandai WonderSwan "
+
+PictureBox1.ToolTip = "Emulate" & ctip & "console"
+  
+End
+
+Public Sub Button26_Click()
+Message.Info("GambNafen" & "\n" & "A GUI for Mednafen 0.9.X WIP" & "\n" & "Written in Gambas by Speedvicio", "Ok")
+End
+
+Public Sub Button22_Click()
+
+  Dialog.title = "Choose a Game Genie file"
+  Dialog.Filter = ["*.nes;*.zip", "All supported files"]
+  If Dialog.OpenFile() Then Return
+  textbox7.text = Dialog.Path
+
+End
+
+Public Sub Button27_Click()
+
+Dialog.title = "Choose a Sound Record directory"
+If Dialog.SelectDirectory() Then Return
+textbox22.text = Dialog.Path
+End
+
+Public Sub Button28_Click()
+
+Dialog.title = "Choose a Movie Record directory"
+If Dialog.SelectDirectory() Then Return
+textbox24.text = Dialog.Path
+End
+
+
+Public Sub Form_Move()
+
+  LRom.posiziona
+
+End
+
+
+
+Public Sub Button29_Click()
+If Exist(User.Home & "/.mednafen/snaps") Then
+If Snaps.Visible = True Then
+  snaps.close
+Else
+  Snaps.Show
+Endif
+Else
+ Message.Warning("No snaps folder avaiable", "Cancel")
+End If
+End
+
+
+Public Sub Button30_Click()
+If Exist(User.Home & "/.mednafen/firmware") Then
+   Desktop.Open(User.Home & "/.mednafen/firmware")
+   Else
+ Message.Warning("No firmware folder avaiable", "Cancel")
+End If
+End
+
+
+Public Sub Form_Hide()
+switch = 0
+If LRom.Visible = True Then
+LRom.hide
+switch = 1
+End If
+If snaps.visible = True Then
+snaps.hide
+switch = 2 + switch
+End If
+End
+
+Public Sub Form_Show()
+If switch = 1 Then LRom.show
+If switch = 2 Then snaps.show
+If switch = 3 Then 
+snaps.show 
+LRom.show
+End If
+End
+
+
+Public Sub ComboBox37_Change()
+
+  If combobox37.text = "jp" Then
+    textbox6.text = "scph5500.bin"
+    dPSXreg = " -psx.region_default jp" 
+  Else If combobox37.text = "eu" Then
+    textbox6.text = "scph5502.bin"
+    dPSXreg = " -psx.region_default eu"
+  Else If combobox37.text = "na" Then
+    textbox6.text = "scph5501.bin"
+    dPSXreg = " -psx.region_default na"
+  Endif
+
+End
+
+
+Public Sub Frame1_DblClick()
+If Exist(User.Home & "/.mednafen/firmware.zip") Then
+Else
+Message.Info("Download Mednafen bios pack...", "Ok")
+Shell "wget -P" & User.Home & "/.mednafen/ " & "http://medguireborn.000webhostapp.com/MedGuiR/firmware.zip" Wait
+Shell "7z" & " x -o" & User.Home & "/.mednafen/ " & User.Home & "/.mednafen/firmware.zip" Wait
+Message.Info("All Mednafen firmware downloaded and extracted!", "Ok")
+Endif
+End
+
+
+Public Sub typeSTR()
+If radiobutton5.value = True Then
+stringaimg = "FILE " & Chr(34) & label70.text & Chr(34) & " Binary" & "\n" & "  TRACK 01 MODE2/2352" & "\n" & "    INDEX 01 00:00:00"
+Else
+stringaimg = "CD_ROM_XA" & "\n" & "\n" & "\n" & "/ / Track 1" & "\n" & "TRACK MODE2_RAW" & "\n" & "NO Copy" & "\n" & "DATAFILE " & Chr(34) & label70.text & Chr(34) 
+Endif
+End
+
+Public Sub Button31_Click()
+
+  Dim imgType As String
+  Dim path As String
+  
+  If radiobutton5.value = True Then
+    imgtype = ".cue"
+    Else
+    imgtype = ".toc"
+  Endif
+  Dialog.title = "Choose asupported image file"
+  Dialog.Filter = ["*.bin;*.img", "All supported files"]
+  If Dialog.OpenFile() Then Return
+  path = File.Dir(Dialog.path)
+  label70.text = file.name(Dialog.path)
+  typestr
+  file.save(path & "/" & File.BaseName(Dialog.Path) & imgtype, stringaimg) 
+  Message.Info(File.BaseName(Dialog.Path) & imgtype & " maked!", "Ok")
+  label70.text = ""
+
+End
+
+
+Public Sub TabStrip1_Click()
+
+  
+
+End

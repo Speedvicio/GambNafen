@@ -1,0 +1,39 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,34,27)
+  Text = ("CUE Selector")
+  Icon = Picture["buggy.png"]
+  Resizable = False
+  { Frame1 Frame
+    MoveScaled(1,1,32,20)
+    ToolTip = ("Select console type to emulate")
+    Text = ("Select Console Type")
+    { PictureBox1 PictureBox
+      MoveScaled(2,3.1111,10,10)
+      Picture = Picture["buggy.png"]
+      Alignment = Align.Center
+    }
+    { RadioButton1 RadioButton
+      MoveScaled(15,3,13,4)
+      Text = ("NEC PC-CD")
+    }
+    { RadioButton2 RadioButton
+      MoveScaled(15,7,13,4)
+      Text = ("NEC PC-FX")
+    }
+    { RadioButton3 RadioButton
+      MoveScaled(15,11,13,4)
+      Text = ("SONY PSX")
+    }
+    { RadioButton4 RadioButton
+      MoveScaled(15,15,16,4)
+      Text = ("SEGA SATURN")
+    }
+  }
+  { Button1 Button
+    MoveScaled(1,22,32,4)
+    ToolTip = ("Start emulation")
+    Text = Shortcut(("OK"), "O")
+  }
+}

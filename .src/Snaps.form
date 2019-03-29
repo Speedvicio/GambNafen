@@ -1,0 +1,31 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,48,66)
+  Text = ("Snaps")
+  Icon = Picture["buggy.png"]
+  Resizable = False
+  AutoResize = True
+  { PictureBox1 PictureBox
+    MoveScaled(1,1,46,31)
+    Background = &H000000&
+    Stretch = True
+  }
+  { ListBox1 ListBox
+    MoveScaled(0.3333,33,47,27)
+    ToolTip = ("Click to view a snapshot preview")
+  }
+  { TextBox1 TextBox
+    MoveScaled(22,61,25,4)
+    ToolTip = ("Input a name to search a snap")
+  }
+  { Label1 Label
+    MoveScaled(10,60.8889,11,4)
+    Text = ("Search snap")
+  }
+  { Button1 Button
+    MoveScaled(1,61,8,4)
+    ToolTip = ("Clear search box")
+    Text = Shortcut(("Clear"), "C")
+  }
+}

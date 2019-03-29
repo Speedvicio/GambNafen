@@ -1,0 +1,18 @@
+* Thu Jan 24 2013 Speedvicio <speedvicio@hotmail.com> 0.0.62
+- Added sabr filter from Mednafen 0.9.27 WIP
+
+* Mon Dec 31 2012 Speedvicio <speedvicio@hotmail.com> 0.0.61
+- Added options from Mednafen 0.9.27 WIP
+
+* Wed Oct 10 2012 Speedvicio <speedvicio@hotmail.com> 0.0.59
+- Added any options from Mednafen 0.9.25 - WIP
+
+* Wed May 02 2012 Speedvicio <speedvicio@hotmail.com> 0.0.58
+- Fixed package for new version of Gambas 3.1
+
+* Tue May 01 2012 Speedvicio <speedvicio@hotmail.com> 0.0.58
+- Fixed package for new version of Gambas 3
+
+* Tue Mar 13 2012 Speedvicio <speedvicio@hotmail.com> 0.0.58
+- Removed unused dependencies
+

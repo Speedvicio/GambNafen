@@ -1,0 +1,53 @@
+' Gambas class file
+
+Public Sub Form_Open()
+Me.CheckBox1.value = Settings["Ladc", Me.CheckBox1.value]
+posiziona
+'Me.center
+pop_list
+End
+
+Public Sub ListBox1_DblClick()
+If CheckBox1.value = True Then
+fmain.checkbox37.value = False
+FMain.avvia
+End If
+End
+
+Public Sub pop_list()
+Dim lFile As String
+Dim ifile As Integer
+listbox1.Clear
+For Each lFile In Dir(User.Home & "/.tempNafen", "*.*")
+listbox1.add(lfile, ifile)
+Next
+End
+
+
+Public Sub Form_Close()
+
+Settings["Ladc"] = Me.CheckBox1.value
+
+End
+
+Public Sub ListBox1_Click()
+Dim cazzosnap As String
+FMain.confile = 0
+FMain.TextBox1.text = ""
+FMain.TextBox1.text = User.Home & "/.tempNafen" & "/" & listbox1.Text
+FMain.nrom = File.BaseName(listbox1.Text)
+FMain.Est_file = LCase(File.Ext(FMain.TextBox1.text))
+FMain.ver_rom
+Snaps.pop_snaps
+Snaps.snaps_view
+
+End
+
+Public Sub posiziona()
+  
+  LRom.y = FMain.y
+  LRom.x = (FMain.x - LRom.Width) - 10
+  Snaps.y = FMain.y
+  Snaps.x = (FMain.x + fmain.Width) + 10
+End
+

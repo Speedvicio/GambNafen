@@ -1,0 +1,53 @@
+' Gambas class file
+
+Public nSnaps As String
+Public Sub Form_Open()
+LRom.posiziona
+pop_snaps
+End
+
+Public Sub pop_snaps()
+Dim jolly As String
+Dim lFile As String
+Dim ifile As Integer
+listbox1.Clear
+
+If Trim(TextBox1.text) = "" Then
+  jolly = "*.png"
+  Else
+    jolly = "*" & TextBox1.text & "*"
+Endif
+
+If Exist(User.Home & "/.mednafen/snaps") Then
+For Each lFile In Dir(User.Home & "/.mednafen/snaps/", jolly)
+listbox1.add(lfile, ifile)
+Next
+Endif
+End
+
+Public Sub snaps_view()
+Dim cs As String
+If Exist(User.Home & "/.mednafen/snaps/" & nsnaps) Then
+cs = (User.Home & "/.mednafen/snaps/" & nsnaps)
+Else
+cs = "NoPr.png"
+End If
+Try PictureBox1.Picture = Picture.Load(cs)
+End
+
+Public Sub ListBox1_Click()
+nsnaps = listbox1.text
+snaps_view
+End
+
+Public Sub TextBox1_Change()
+
+  pop_snaps
+
+End
+
+Public Sub Button1_Click()
+
+  TextBox1.text = ""
+
+End

@@ -1,0 +1,19 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,48,65)
+  Text = ("List ROM")
+  Icon = Picture["buggy.png"]
+  Resizable = False
+  AutoResize = True
+  { ListBox1 ListBox
+    MoveScaled(0,5,47,59)
+    Font = Font["Bold"]
+    ToolTip = ("Double click to select a rom")
+    Sorted = True
+  }
+  { CheckBox1 CheckBox
+    MoveScaled(23,1,24,4)
+    Text = Shortcut(("Launch at double click"), "L")
+  }
+}

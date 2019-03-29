@@ -1,0 +1,46 @@
+' Gambas class file
+
+
+Public Sub Button1_Click()
+FMain.avvia
+Me.Close
+End
+
+Public Sub t_console()
+  
+  If RadioButton1.Value = True Then
+  FMain.ComboBox1.Text = "pce"
+  Else If RadioButton2.Value = True Then
+  FMain.ComboBox1.Text = "pcfx"
+  Else If RadioButton3.Value = True Then
+  FMain.ComboBox1.Text = "psx"
+  Else If RadioButton4.Value = True Then
+  FMain.ComboBox1.Text = "ss"
+  End If
+  PictureBox1.Picture = FMain.Picturebox1.Picture
+End
+
+
+Public Sub RadioButton1_Click()
+
+  t_console
+
+End
+
+Public Sub RadioButton2_Click()
+
+  t_console
+
+End
+
+Public Sub RadioButton3_Click()
+
+  t_console
+
+End
+
+Public Sub Form_Open()
+
+  Me.Center
+
+End

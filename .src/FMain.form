@@ -1,0 +1,1465 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,87,70)
+  Text = ("GambNafen")
+  Icon = Picture["buggy.png"]
+  Resizable = False
+  AutoResize = True
+  { TabStrip1 TabStrip
+    MoveScaled(1,5,85,59)
+    Count = 7
+    Index = 0
+    Text = ("&General")
+    { Frame1 Frame
+      MoveScaled(0,1,42,29)
+      ToolTip = ("Select bios file console or open firmware folder and put in bios  ")
+      Text = ("Bios Path")
+      { Panel2 Panel
+        MoveScaled(2,3,13,21)
+        { Label2 Label
+          MoveScaled(0,0.1111,10,4)
+          Text = ("PC-FX")
+        }
+        { Label3 Label
+          MoveScaled(0,4.3333,11,4)
+          Text = ("PC-CD")
+        }
+        { CheckBox17 CheckBox
+          MoveScaled(0,8.4444,12,4)
+          ToolTip = ("Enable external GBA bios")
+          Text = ("GBA")
+        }
+        { Label5 Label
+          MoveScaled(0,12.5556,9,4)
+          Text = ("Mega CD")
+        }
+        { Label6 Label
+          MoveScaled(0,16.6667,7,4)
+          Text = ("PSX")
+        }
+      }
+      { Panel3 Panel
+        MoveScaled(17,3,24,21)
+        { TextBox2 TextBox
+          MoveScaled(0,0.1111,17,4)
+          Text = ("pcfxbios.bin")
+        }
+        { TextBox3 TextBox
+          MoveScaled(0,4.3333,17,4)
+          Text = ("syscard3.pce")
+        }
+        { TextBox4 TextBox
+          MoveScaled(0,8.4444,17,4)
+          Text = ("gbabios.bin")
+        }
+        { TextBox5 TextBox
+          MoveScaled(0,12.5556,17,4)
+          Text = ("us_scd1_9210.bin")
+        }
+        { TextBox6 TextBox
+          MoveScaled(0,16.6667,17,4)
+          Text = ("scph5500.bin")
+        }
+        { Button4 Button
+          MoveScaled(18,0.1111,5,4)
+          Text = ("") & "..."
+        }
+        { Button5 Button
+          MoveScaled(18,4.3333,5,4)
+          Text = ("") & "..."
+        }
+        { Button6 Button
+          MoveScaled(18,8.4444,5,4)
+          Text = ("") & "..."
+        }
+        { Button7 Button
+          MoveScaled(18,12.5556,5,4)
+          Text = ("") & "..."
+        }
+        { Button8 Button
+          MoveScaled(18,16.6667,5,4)
+          Enabled = False
+          Text = ("") & "..."
+        }
+      }
+      { Panel11 Panel
+        MoveScaled(2,24,38,5)
+        { Button30 Button
+          MoveScaled(1.3333,0.5556,17,4)
+          ToolTip = ("Open default bios path")
+          Text = Shortcut(("Open Firmware"), "O")
+        }
+        { Button10 Button
+          MoveScaled(19.5556,0.5556,17,4)
+          ToolTip = ("Read bios from default path")
+          Text = Shortcut(("Default"), "D")
+        }
+      }
+    }
+    { Frame3 Frame
+      MoveScaled(43,30,41,16)
+      Text = ("Resolution/Video Output")
+      { Panel8 Panel
+        MoveScaled(1,4,40,5)
+        { Label11 Label
+          MoveScaled(0.5556,0.5556,7,4)
+          Text = ("Presets")
+        }
+        { ComboBox3 ComboBox
+          MoveScaled(8.1111,0.5556,14,4)
+          ToolTip = ("Presets full screen video output.\nIf \"desktop\" will set the actual resolution of your desktop")
+          List = [("desktop"), (" 640x480"), (" 800x600"), ("1024x768"), ("1280x1024")]
+          Text = (" 800x600")
+        }
+        { Label12 Label
+          MoveScaled(22.6667,0.5556,6,4)
+          Text = ("Driver")
+        }
+        { ComboBox4 ComboBox
+          MoveScaled(29.4444,0.5556,10,4)
+          ToolTip = ("Select video driver, \"opengl\" or \"sdl\".\nopengl - OpenGL + SDL\nThis output method is preferred, as all features are available with it.\n\nsdl - SDL Surface\nSlower with lower-quality scaling than OpenGL, but if you don't have hardware-accelerated OpenGL rendering, it will be faster than software OpenGL rendering. Bilinear interpolation not available. Pixel shaders do not work with this output method, of course.\n\noverlay - SDL Overlay\nAs fast as OpenGL, perhaps faster in some situations, *if* it's hardware-accelerated. Scanline effects are not available. hq2x, hq3x, hq4x are not available. The OSD may be missing or glitchy. Bilinear interpolation can't be turned off. Harsh chroma subsampling blurring in some picture types. If you use this output method, it is strongly recommended to use a special scaler with it, such as nn2x.")
+          List = [("opengl"), ("sdl"), ("overlay")]
+          Text = ("opengl")
+        }
+      }
+      { Panel9 Panel
+        MoveScaled(1,9,39,5)
+        { CheckBox3 CheckBox
+          MoveScaled(1,0.5556,11,4)
+          ToolTip = ("Enable custom video output")
+          AutoResize = True
+          Text = ("Custom")
+        }
+        { TextBox8 TextBox
+          MoveScaled(13,0.5556,10,4)
+        }
+        { Label13 Label
+          MoveScaled(24,0.5556,3,4)
+          Text = ("x")
+        }
+        { TextBox9 TextBox
+          MoveScaled(28,0.5556,10,4)
+        }
+      }
+    }
+    { Frame4 Frame
+      MoveScaled(0,30,42,11)
+      ToolTip = ("Auto-fire frequency")
+      Text = ("Autofire")
+      { Panel7 Panel
+        MoveScaled(1,4,40,5)
+        { Label14 Label
+          MoveScaled(1,0,19,4)
+          AutoResize = True
+          Text = ("Set Autofire 3")
+        }
+        { Slider3 Slider
+          MoveScaled(21,0,18,4)
+          MaxValue = 1000
+          Value = 3
+        }
+      }
+    }
+    { Frame2 Frame
+      MoveScaled(43,1,41,29)
+      Text = ("Sound Options")
+      { Panel4 Panel
+        MoveScaled(1,21,40,5)
+        { CheckBox1 CheckBox
+          MoveScaled(0.6667,0.5556,16,4)
+          ToolTip = ("Enable sound output")
+          AutoResize = True
+          Text = ("Enable Sound")
+          Value = CheckBox.True
+        }
+        { CheckBox2 CheckBox
+          MoveScaled(17.5556,0.5556,14,4)
+          ToolTip = ("Force monophonic sound output")
+          AutoResize = True
+          Text = ("Force Mono")
+        }
+        { Button11 Button
+          MoveScaled(32.3333,0.5556,7,4)
+          ToolTip = ("Reset all value to default")
+          Text = Shortcut(("Reset"), "R")
+        }
+      }
+      { Panel5 Panel
+        MoveScaled(1,3,20,18)
+        { Label16 Label
+          MoveScaled(0,0.4444,6,4)
+          AutoResize = True
+          Text = ("Driver")
+        }
+        { Label8 Label
+          MoveScaled(0,4.6667,13,4)
+          AutoResize = True
+          Text = ("Playback Rate")
+        }
+        { Label9 Label
+          MoveScaled(0,9.1111,19,4)
+          AutoResize = True
+          Text = ("Sound Volume 100")
+        }
+        { Label10 Label
+          MoveScaled(0,13.5556,19,4)
+          AutoResize = True
+          Text = ("Sound Buffer 32")
+        }
+      }
+      { Panel6 Panel
+        MoveScaled(19,3,22,18)
+        { ComboBox6 ComboBox
+          MoveScaled(0,0.4444,21,4)
+          ToolTip = ("Select sound driver.\nThe following choices are possible, sorted by preference, high to low, when \"default\" driver is used, but dependent on being compiled in.\n\ndefault - Default\nDefault sound driver.\n\nalsa - ALSA\nA recommended driver, and the default for Linux(if available).\n\noss - Open Sound System\nA recommended driver, and the default for non-Linux UN*X/POSIX/BSD systems, or anywhere ALSA is unavailable. If the ALSA driver gives you problems, you can try using this one instead.\n\nIf you are using OSSv4 or newer, you should edit \"/usr/lib/oss/conf/osscore.conf\", uncomment the max_intrate= line, and change the value from 100(default) to 1000(or higher if you know what you're doing), and restart OSS. Otherwise, performance will be poor, and the sound buffer size in Mednafen will be orders of magnitude larger than specified.\n\nIf the sound buffer size is still excessively larger than what is specified via the \"sound.buffer_time\" setting, you can try setting \"sound.period_time\" to 2666, and as a last resort, 5333, to work around a design flaw/limitation/choice in the OSS API and OSS implementation.\n\nsdl - Simple Directmedia Layer\nThis driver is not recommended, but it serves as a backup driver if the others aren't available. Its performance is generally sub-par, requiring higher latency or faster CPUs/SMP for glitch-free playback, except where the OS provides a sound callback API itself, such as with Mac OS X and BeOS.\n\njack - JACK\nSomewhat experimental driver, unusably buggy until Mednafen 0.8.C. The \"sound.buffer_time\" setting controls the size of the local sound buffer, not the server's sound buffer, and the latency reported during startup is for the local sound buffer only. Please note that video card drivers(in the kernel or X), and hardware-accelerated OpenGL, may interfere with jackd's ability to effectively run with realtime response.")
+          List = [("default"), ("alsa"), ("oss"), ("sdl"), ("jack")]
+          Text = ("default")
+        }
+        { ComboBox2 ComboBox
+          MoveScaled(0,4.6667,21,4)
+          ToolTip = ("Specifies the sound playback rate, in frames per second(\"Hz\")")
+          List = [("22050"), ("44100"), ("48000"), ("96000"), ("192000")]
+          Text = ("48000")
+        }
+        { Slider1 Slider
+          MoveScaled(3,9.1111,18,4)
+          ToolTip = ("Sound volume level, in percent")
+          MaxValue = 150
+          Step = 5
+          Value = 100
+        }
+        { Slider2 Slider
+          MoveScaled(3,13.5556,18,4)
+          ToolTip = ("Desired total buffer size in milliseconds")
+          MaxValue = 1000
+          Value = 32
+        }
+      }
+    }
+    { CheckBox16 CheckBox
+      MoveScaled(1,44,24,4)
+      ToolTip = ("If you have trouble with alsa driver, you can try to check this option.\nWARNING... can freeze PC, use at your risk!")
+      AutoResize = True
+      Text = ("Disable Pulse Audio")
+    }
+    { Panel1 Panel
+      MoveScaled(1,49,83,5)
+      { CheckBox6 CheckBox
+        MoveScaled(0,1,10,4)
+        ToolTip = ("Attempt to synchronize OpenGL page flips to vertical retrace period.\nEnable time synchronization(waiting) for frame blitting.\n\nDisable to reduce latency, at the cost of potentially increased video \"juddering\", with the maximum reduction in latency being about 1 video frame's time.\nWill work best with emulated systems that are not very computationally expensive to emulate, combined with running on a relatively fast CPU.")
+        AutoResize = True
+        Text = ("VSync")
+      }
+      { CheckBox7 CheckBox
+        MoveScaled(10,1,14,4)
+        ToolTip = ("Enable frameskip during emulation rendering")
+        AutoResize = True
+        Text = ("Frame Skip")
+      }
+      { Label67 Label
+        MoveScaled(24,1,8,4)
+        Text = ("Bilinear")
+      }
+      { ComboBox39 ComboBox
+        MoveScaled(32,1,5,4)
+        ToolTip = ("Enable (bi)linear interpolation.\n\n0 - Disabled\n\n1 - Bilinear\n\nx - Linear (X)\nInterpolation only on the X axis.\n\ny - Linear (Y)\nInterpolation only on the Y axis.")
+        List = [("0"), ("1"), ("x"), ("y")]
+        Text = ("0")
+      }
+      { CheckBox9 CheckBox
+        MoveScaled(38,1,8,4)
+        ToolTip = ("Enable video temporal blur(50/50 previous/current frame by default)")
+        Text = ("Blur")
+      }
+      { Label15 Label
+        MoveScaled(46,1,8,4)
+        Text = ("Stretch")
+      }
+      { ComboBox5 ComboBox
+        MoveScaled(54,1,15,4)
+        ToolTip = ("Stretch to fill screen.\n\n0 - Disabled\n\nfull - Full\nFull-screen stretch, disregarding aspect ratio.\n\naspect - Aspect Preserve\nFull-screen stretch as far as the aspect ratio(in this sense, the equivalent xscalefs == yscalefs) can be maintained.\n\naspect_int - Aspect Preserve + Integer Scale\nFull-screen stretch, same as \"aspect\" except that the equivalent xscalefs and yscalefs are rounded down to the nearest integer.\n\naspect_mult2 - Aspect Preserve + Integer Multiple-of-2 Scale\nFull-screen stretch, same as \"aspect_int\", but rounds down to the nearest multiple of 2.")
+        List = [("0"), ("full"), ("aspect"), ("aspect_int"), ("aspect_mult2")]
+        Text = ("aspect_mult2")
+      }
+      { CheckBox5 CheckBox
+        MoveScaled(69,1,14,4)
+        ToolTip = ("Start emulation in full screen")
+        AutoResize = True
+        Text = ("Full Screen")
+      }
+    }
+    Index = 1
+    Text = ("&Filter/Rom Path")
+    { Frame5 Frame
+      MoveScaled(0,2,42,13)
+      { Panel13 Panel
+        MoveScaled(1,2,15,10)
+        { Label17 Label
+          MoveScaled(0,0.5556,14,4)
+          Text = ("Scanlines 0")
+        }
+        { Label18 Label
+          MoveScaled(0,5.3333,13,4)
+          Text = ("Blur 50")
+        }
+      }
+      { Panel14 Panel
+        MoveScaled(16,2,26,10)
+        { Slider4 Slider
+          MoveScaled(0.5556,0.5556,25,4)
+          ToolTip = ("Enable scanlines with specified opacity.\nOpacity is specified in %; IE a value of \"100\" will give entirely black scanlines.")
+          Step = 5
+        }
+        { Slider5 Slider
+          MoveScaled(0.5556,5.3333,25,4)
+          ToolTip = ("Blur amount in accumulation mode, specified in percentage of accumulation buffer to mix with the current frame")
+          Step = 5
+          Value = 50
+        }
+      }
+    }
+    { Frame6 Frame
+      MoveScaled(0,15,42,10)
+      ToolTip = ("Enable specified special video scaler.\nThe destination rectangle is NOT altered by this setting, so if you have xscale and yscale set to \"2\", and try to use a 3x scaling filter like hq3x, the image is not going to look that great. \nThe nearest-neighbor scalers are intended for use with bilinear interpolation enabled, at high resolutions(such as 1280x1024; nn2x(or nny2x) + bilinear interpolation + fullscreen stretching at this resolution looks quite nice).\n\nnone - None/Disabled\n\nhq2x - hq2x\n\nhq3x - hq3x\n\nhq4x - hq4x\n\nscale2x - scale2x\n\nscale3x - scale3x\n\nscale4x - scale4x\n\n2xsai - 2xSaI\n\nsuper2xsai - Super 2xSaI\n\nsupereagle - Super Eagle\n\nnn2x - Nearest-neighbor 2x\n\nnn3x - Nearest-neighbor 3x\n\nnn4x - Nearest-neighbor 4x\n\nnny2x - Nearest-neighbor 2x, y axis only\n\nnny3x - Nearest-neighbor 3x, y axis only\n\nnny4x - Nearest-neighbor 4x, y axis only")
+      Text = ("Special Filter")
+      { Panel15 Panel
+        MoveScaled(1,4,40,5)
+        { Label19 Label
+          MoveScaled(0,0.5556,9,4)
+          Text = ("Filters")
+        }
+        { ComboBox7 ComboBox
+          MoveScaled(15,0.5556,24,4)
+          List = [("none"), ("hq2x"), ("hq3x"), ("hq4x"), ("scale2x"), ("scale3x"), ("scale4x"), ("2xsai"), ("supereagle"), ("nn2x"), ("nn3x"), ("nn4x"), ("nny2x"), ("nny3x"), ("nny4x")]
+          Text = ("none")
+        }
+      }
+    }
+    { Frame7 Frame
+      MoveScaled(0,25,42,10)
+      ToolTip = ("Enable specified OpenGL pixel shader.\n\nObviously, this will only work with the OpenGL \"video.driver\" setting, and only on cards and OpenGL implementations that support pixel shaders, \notherwise you will get a black screen, or Mednafen may display an error message when starting up. \nBilinear interpolation is disabled with pixel shaders, and any interpolation, \nif present, will be noted in the description of each pixel shader.\nnone - None/Disabled\n\nautoip - Auto Interpolation\nWill automatically interpolate on each axis if the corresponding effective scaling factor is not an integer.\n\nautoipsharper - Sharper Auto Interpolation\nSame as \"autoip\", but when interpolation is done, it is done in a manner that will reduce blurriness if possible.\n\nscale2x - Scale2x\n\nsabr - SABR v3.0\nGPU-intensive.\n\nipsharper - Sharper bilinear interpolation.\n\nipxnoty - Linear interpolation on X axis only.\n\nipynotx - Linear interpolation on Y axis only.\n\nipxnotysharper - Sharper version of \"ipxnoty\".\n\nipynotxsharper - Sharper version of \"ipynotx\".")
+      Text = ("Pixel Shader Filter")
+      { Panel16 Panel
+        MoveScaled(1,4,40,5)
+        { Label20 Label
+          MoveScaled(0,0.5556,12,4)
+          Text = ("Shader Effect")
+        }
+        { ComboBox8 ComboBox
+          MoveScaled(15,0.5556,24,4)
+          List = [("none"), ("autoip"), ("autoipsharper"), ("scale2x"), ("sabr"), ("ipsharper"), ("ipxnoty"), ("ipynotx"), ("ipxnotysharper"), ("ipynotxsharper")]
+          Text = ("none")
+        }
+      }
+    }
+    { Frame8 Frame
+      MoveScaled(0,35,42,19)
+      Text = ("Scaling Factor")
+      { CheckBox4 CheckBox
+        MoveScaled(30,2,11,4)
+        ToolTip = ("Binding the scaling factor")
+        AutoResize = True
+        Text = ("Binding")
+        Value = CheckBox.True
+      }
+      { Panel17 Panel
+        MoveScaled(2,6,40,10)
+        { Label21 Label
+          MoveScaled(1.5556,0.5556,8,4)
+          Text = ("X Axis")
+        }
+        { ComboBox9 ComboBox
+          MoveScaled(11.1111,0.5556,8,4)
+          ToolTip = ("Scaling factor for the X axis")
+          List = [("1"), ("2"), ("3"), ("4")]
+          Text = ("1")
+        }
+        { Label22 Label
+          MoveScaled(20.6667,0.5556,8,4)
+          Text = ("Y Axis")
+        }
+        { ComboBox10 ComboBox
+          MoveScaled(30.4444,0.5556,8,4)
+          ToolTip = ("Scaling factor for the Y axis")
+          List = [("1"), ("2"), ("3"), ("4")]
+          Text = ("1")
+        }
+        { Label23 Label
+          MoveScaled(1.5556,5.3333,8,4)
+          Text = ("X Axis FS")
+        }
+        { ComboBox11 ComboBox
+          MoveScaled(11.1111,5.3333,8,4)
+          ToolTip = ("Scaling factor for the X axis in fullscreen mode")
+          List = [("1"), ("2"), ("3"), ("4")]
+          Text = ("1")
+        }
+        { Label24 Label
+          MoveScaled(20.6667,5.3333,8,4)
+          Text = ("Y Axis FS")
+        }
+        { ComboBox12 ComboBox
+          MoveScaled(30.4444,5.3333,8,4)
+          ToolTip = ("Scaling factor for the Y axis in fullscreen mode")
+          List = [("1"), ("2"), ("3"), ("4")]
+          Text = ("1")
+        }
+      }
+    }
+    { Frame9 Frame
+      MoveScaled(43,1,41,45)
+      ToolTip = ("Select path rom for every console (optional)")
+      Text = ("Path ROM")
+      { Panel18 Panel
+        MoveScaled(1,3,17,41)
+        { CheckBox11 CheckBox
+          MoveScaled(0,0,10,4)
+          ToolTip = ("Set the default path rom")
+          AutoResize = True
+          Text = ("Default")
+        }
+        { Label25 Label
+          MoveScaled(0,4,9,4)
+          Text = ("GB/GBA")
+        }
+        { Label26 Label
+          MoveScaled(0,8,9,4)
+          Text = ("GG/SMS")
+        }
+        { Label27 Label
+          MoveScaled(0,12.1111,9,4)
+          Text = ("SNES")
+        }
+        { Label28 Label
+          MoveScaled(0,16.3333,9,4)
+          Text = ("LYNX")
+        }
+        { Label29 Label
+          MoveScaled(0,20.4444,11,4)
+          Text = ("MEGADRIVE")
+        }
+        { Label30 Label
+          MoveScaled(0,24.5556,16,4)
+          Text = ("NEOGEO POCKET")
+        }
+        { Label31 Label
+          MoveScaled(0,28.5556,9,4)
+          Text = ("NES/Vboy")
+        }
+        { Label32 Label
+          MoveScaled(0,32.6667,9,4)
+          Text = ("PCE/PCFX")
+        }
+        { Label33 Label
+          MoveScaled(0,36.8889,14,4)
+          Text = ("WONDERSWAN")
+        }
+      }
+      { Panel19 Panel
+        MoveScaled(17,3,24,41)
+        { TextBox10 TextBox
+          MoveScaled(0,0,18,4)
+        }
+        { TextBox11 TextBox
+          MoveScaled(0,4,18,4)
+        }
+        { TextBox12 TextBox
+          MoveScaled(0,8,18,4)
+        }
+        { TextBox13 TextBox
+          MoveScaled(0,12.1111,18,4)
+        }
+        { TextBox14 TextBox
+          MoveScaled(0,16.3333,18,4)
+        }
+        { TextBox15 TextBox
+          MoveScaled(0,20.4444,18,4)
+        }
+        { TextBox16 TextBox
+          MoveScaled(0,24.5556,18,4)
+        }
+        { TextBox17 TextBox
+          MoveScaled(0,28.5556,18,4)
+        }
+        { TextBox18 TextBox
+          MoveScaled(0,32.6667,18,4)
+        }
+        { TextBox19 TextBox
+          MoveScaled(0,36.8889,18,4)
+        }
+        { Button12 Button
+          MoveScaled(19,0,4,4)
+          Text = ("") & "..."
+        }
+        { Button13 Button
+          MoveScaled(19,4,4,4)
+          Text = ("") & "..."
+        }
+        { Button14 Button
+          MoveScaled(19,8,4,4)
+          Text = ("") & "..."
+        }
+        { Button15 Button
+          MoveScaled(19,12.1111,4,4)
+          Text = ("") & "..."
+        }
+        { Button16 Button
+          MoveScaled(19,16.3333,4,4)
+          Text = ("") & "..."
+        }
+        { Button17 Button
+          MoveScaled(19,20.4444,4,4)
+          Text = ("") & "..."
+        }
+        { Button18 Button
+          MoveScaled(19,24.5556,4,4)
+          Text = ("") & "..."
+        }
+        { Button19 Button
+          MoveScaled(19,28.5556,4,4)
+          Text = ("") & "..."
+        }
+        { Button20 Button
+          MoveScaled(19,32.6667,4,4)
+          Text = ("") & "..."
+        }
+        { Button21 Button
+          MoveScaled(19,36.8889,4,4)
+          Text = ("") & "..."
+        }
+      }
+    }
+    { Frame10 Frame
+      MoveScaled(43,47,41,7)
+      ToolTip = ("Can input your custom emulation parameters.\nPress Help button to know all parameters")
+      Text = ("Custom")
+      { Panel20 Panel
+        MoveScaled(1,2,40,5)
+        { Label34 Label
+          MoveScaled(2,0.5556,11,4)
+          Text = ("Parameters")
+        }
+        { TextBox20 TextBox
+          MoveScaled(15,0.5556,23,4)
+        }
+      }
+    }
+    Index = 2
+    Text = ("&PC Engine/Turbografx-16/PC-FX/Game Boy(c)")
+    { Frame11 Frame
+      MoveScaled(0,1,46,22)
+      Text = ("Pc Engine Emulation Options")
+      { Panel21 Panel
+        MoveScaled(2,3,43,13)
+        { CheckBox12 CheckBox
+          MoveScaled(0,0.3333,29,4)
+          ToolTip = ("Force SuperGrafx emulation.\nEnabling this option is not necessary to run unrecognized PCE ROM images in SuperGrafx mode, and enabling it is discouraged; ROM images with a file extension of \".sgx\" will automatically enable SuperGrafx emulation")
+          AutoResize = True
+          Text = ("Force SuperGrafx emulation")
+        }
+        { CheckBox13 CheckBox
+          MoveScaled(0,4.5556,31,4)
+          ToolTip = ("Enable Arcade Card emulation.\nLeaving this option enabled is recommended, unless you want to see special warning screens on ACD games, or you prefer the non-enhanced modes of ACD-enhanced SCD games. Additionally, you may want to disable it you you wish to use state rewinding with a SCD ACD-enhanced game on a slow CPU, as the extra 2MiB of RAM the Arcade Card offers is difficult to compress in real-time.")
+          AutoResize = True
+          Text = ("Enable Arcade Card emulation")
+        }
+        { CheckBox14 CheckBox
+          MoveScaled(0,8.6667,21,4)
+          ToolTip = ("Remove 16-sprites-per-scanline hardware limit.\nWARNING: Enabling this option may cause undesirable graphics glitching on some games(such as \"Bloody Wolf\").")
+          AutoResize = True
+          Text = ("Disable Sprite Limit")
+        }
+      }
+      { Panel22 Panel
+        MoveScaled(2,16,32,5)
+        { Label40 Label
+          MoveScaled(1.3333,0.5556,13,4)
+          Text = ("PSG Revision")
+        }
+        { ComboBox15 ComboBox
+          MoveScaled(15.5556,0.5556,15,4)
+          ToolTip = ("Select PSG revision.\nWARNING: HES playback will always use the \"huc6280a\" revision if this setting is set to \"match\", since HES playback is always done with SuperGrafx emulation enabled.\n\nhuc6280 - HuC6280\nHuC6280 as found in the original PC Engine.\n\nhuc6280a - HuC6280A\nHuC6280A as found in the SuperGrafx and CoreGrafx I. Provides proper channel amplitude centering, but may cause clicking in a few games designed with the original HuC6280's sound characteristics in mind.\n\nenhanced - Enhanced\nEmulator-only pseudo-revision, designed to reduce clicking and audio artifacts in games designed for either real revision.\n\nmatch - Match emulation mode.\nSelects \"huc6280\" for non-SuperGrafx mode, and \"huc6280a\" for SuperGrafx(full) mode.")
+          List = [("huc6280"), ("huc6280a"), ("enhanced"), ("match")]
+          Text = ("huc6280a")
+        }
+      }
+    }
+    { Frame12 Frame
+      MoveScaled(0,24,46,25)
+      Text = ("Pc Engine Sound Options")
+      { Panel23 Panel
+        MoveScaled(1,4,19,13)
+        { Label7 Label
+          MoveScaled(0,0.3333,17,4)
+          Text = ("PSG Volume 100")
+        }
+        { Label35 Label
+          MoveScaled(0,4.5556,18,4)
+          Text = ("ADPCM Volume 100")
+        }
+        { Label36 Label
+          MoveScaled(0,8.6667,18,4)
+          Text = ("CD-DA Volume 100")
+        }
+      }
+      { Panel24 Panel
+        MoveScaled(20,4,25,13)
+        { Slider6 Slider
+          MoveScaled(0.5556,0.3333,24,4)
+          MaxValue = 200
+          Value = 100
+        }
+        { Slider7 Slider
+          MoveScaled(0.5556,4.5556,24,4)
+          MaxValue = 200
+          Value = 100
+        }
+        { Slider8 Slider
+          MoveScaled(0.5556,8.6667,24,4)
+          MaxValue = 200
+          Value = 100
+        }
+      }
+      { Panel25 Panel
+        MoveScaled(1,18,44,5)
+        { CheckBox15 CheckBox
+          MoveScaled(3,0.5556,19,4)
+          ToolTip = ("Enable lowpass filter with rolloff dependent on playback-frequency.\nThis makes ADPCM voices sound less \"harsh\", however, the downside is that it will cause many ADPCM sound effects to sound a bit muffled.")
+          AutoResize = True
+          Text = ("ADPCM Low Filter")
+        }
+        { Button9 Button
+          MoveScaled(25,0.5556,16,4)
+          ToolTip = ("Reset all value to default")
+          Text = Shortcut(("Reset"), "R")
+        }
+      }
+    }
+    { Frame13 Frame
+      MoveScaled(47,1,37,16)
+      Text = ("Pc Engine Input Device Options")
+      { Panel26 Panel
+        MoveScaled(1,5,36,9)
+        { Label38 Label
+          MoveScaled(0,0.3333,21,4)
+          Text = ("Device for Input Port 1")
+        }
+        { Label39 Label
+          MoveScaled(0,4.5556,21,4)
+          Text = ("Device for Input Port 2")
+        }
+        { ComboBox13 ComboBox
+          MoveScaled(21,0.3333,14,4)
+          ToolTip = ("Input device for Port 1\nnone - none\n\ngamepad - Gamepad\n\nmouse - Mouse\n\ntsushinkb - Tsushin Keyboard")
+          List = [("none"), ("gamepad"), ("mouse"), ("tsushinkb")]
+          Text = ("gamepad")
+        }
+        { ComboBox14 ComboBox
+          MoveScaled(21,4.5556,14,4)
+          ToolTip = ("Input device for Port 2\nnone - none\n\ngamepad - Gamepad\n\nmouse - Mouse")
+          List = [("none"), ("gamepad"), ("mouse")]
+          Text = ("gamepad")
+        }
+      }
+    }
+    { Frame23 Frame
+      MoveScaled(47,22,37,10)
+      Text = ("Game Boy (c) Options")
+      { Panel27 Panel
+        MoveScaled(2,4,35,5)
+        { Label66 Label
+          MoveScaled(0,0.5556,11,4)
+          Text = ("System type")
+        }
+        { ComboBox38 ComboBox
+          MoveScaled(20,0.5556,14,4)
+          ToolTip = ("Emulated GB type.\n\nauto - Auto\nAutomatic detection based on headers.\n\ndmg - DMG\nOriginal GameBoy Monochrome.\n\ncgb - CGB\nGameBoy Color.\n\n This option is not fully implemented in regards to handling of DMG games.\n\nagb - AGB\nGameBoy Advance.\n\n This option is not fully implemented in regards to handling of DMG games.")
+          List = [("auto"), ("dmg"), ("cgb"), ("agb")]
+          Text = ("auto")
+        }
+      }
+    }
+    { Frame24 Frame
+      MoveScaled(47,34,37,19)
+      Text = ("PC-FX Options")
+      { Panel28 Panel
+        MoveScaled(2,4,35,5)
+        { Label68 Label
+          MoveScaled(0,0.5556,13,4)
+          Text = ("CPU Emulation")
+        }
+        { ComboBox40 ComboBox
+          MoveScaled(20,0.5556,14,4)
+          ToolTip = ("CPU emulation mode.\n\nfast - Fast Mode\nFast mode trades timing accuracy, cache emulation, and executing from hardware registers and RAM not intended for code use for performance.\n\naccurate - Accurate Mode\nIncreased timing accuracy, though not perfect, along with cache emulation, at the cost of decreased performance. Additionally, even the pipeline isn't correctly and fully emulated in this mode.\n\nauto - Auto Mode\nSelects \"fast\" or \"accurate\" automatically based on an internal database. If the CD image is not recognized, defaults to \"fast\".")
+          List = [("fast"), ("accurate"), ("auto")]
+          Text = ("auto")
+        }
+      }
+      { Panel29 Panel
+        MoveScaled(2,9,21,9)
+        { CheckBox8 CheckBox
+          MoveScaled(0,0.3333,17,4)
+          AutoResize = True
+          Text = ("No Sprite Limits")
+        }
+        { CheckBox36 CheckBox
+          MoveScaled(0,4.5556,20,4)
+          AutoResize = True
+          Text = ("Bilinear On Chroma")
+        }
+      }
+    }
+    Index = 3
+    Text = ("GBA/Lynx/Neo Geo Pocket/NES/Virtual Boy/&Wonderswan")
+    { Frame14 Frame
+      MoveScaled(0,0,46,31)
+      Text = ("NES Options")
+      { TextBox7 TextBox
+        MoveScaled(24,3,17,4)
+      }
+      { Button22 Button
+        MoveScaled(42,3,4,4)
+        ToolTip = ("Path to Game Genie ROM image.")
+        Text = ("") & "..."
+      }
+      { ComboBox16 ComboBox
+        MoveScaled(11,16,6,4)
+        ToolTip = ("Select input port")
+        List = [("1"), ("2"), ("3"), ("4")]
+        Text = ("1")
+      }
+      { Label37 Label
+        MoveScaled(20,16,7,4)
+        Text = ("Device")
+      }
+      { Panel30 Panel
+        MoveScaled(1,3,30,13)
+        { CheckBox18 CheckBox
+          MoveScaled(0,0.3333,21,4)
+          ToolTip = ("Enable Game Genie emulation")
+          AutoResize = True
+          Text = ("Enable Game Genie")
+        }
+        { CheckBox19 CheckBox
+          MoveScaled(0,4.5556,22,4)
+          ToolTip = ("Remove 8-sprites-per-scanline hardware limit.\nWARNING: Enabling this option will cause graphical glitches in some games, including \"Solstice\".")
+          AutoResize = True
+          Text = ("Disable Sprite Limit")
+        }
+        { CheckBox20 CheckBox
+          MoveScaled(0,8.6667,29,4)
+          ToolTip = ("Enable less-accurate, but better sounding, Namco 106(mapper 19) sound emulation")
+          AutoResize = True
+          Text = ("Namco 106 Sound Emulation")
+        }
+      }
+      { Label4 Label
+        MoveScaled(1,16,10,4)
+        AutoResize = True
+        Text = ("Input Port")
+      }
+      { Label41 Label
+        MoveScaled(1,21,28,4)
+        Text = ("Famicon Expansion Port Device")
+      }
+      { Label42 Label
+        MoveScaled(17,26,12,4)
+        Text = ("Ntsc Presets")
+      }
+      { Panel31 Panel
+        MoveScaled(31,11,15,19)
+        { CheckBox21 CheckBox
+          MoveScaled(0,0.5556,14,4)
+          ToolTip = ("Enable PAL(50Hz) NES emulation.")
+          AutoResize = True
+          Text = ("PAL Console")
+        }
+        { ComboBox17 ComboBox
+          MoveScaled(0,5.1111,14,4)
+          ToolTip = ("Input device\nnone - none\n\ngamepad - Gamepad\n\nzapper - Zapper\n\npowerpada - Power Pad Side A\n\npowerpadb - Power Pad Side B\n\narkanoid - Arkanoid Paddle")
+          List = [("none"), ("gamepad"), ("zapper"), ("powerpada"), ("powerpadb"), ("arkanoid")]
+          Text = ("gamepad")
+        }
+        { ComboBox18 ComboBox
+          MoveScaled(0,9.6667,14,4)
+          ToolTip = ("Input device for Famicom Expansion Port\nnone - none\n\narkanoid - Arkanoid Paddle\n\nshadow - Space Shadow Gun\n\n4player - 4-player Adapter\n\nfkb - Family Keyboard\n\nhypershot - Hypershot Paddles\n\nmahjong - Mahjong Controller\n\npartytap - Party Tap\n\nftrainera - Family Trainer Side A\n\nftrainerb - Family Trainer Side B\n\noekakids - Oeka Kids Tablet\n\nbworld - Barcode World Scanner")
+          List = [("none"), ("arkanoid"), ("shadow"), ("4player"), ("fkb"), ("hypershot"), ("mahjong"), ("partytap"), ("ftrainera"), ("oekakids"), ("bworld")]
+          Text = ("none")
+        }
+        { ComboBox19 ComboBox
+          MoveScaled(0,14.4444,14,4)
+          ToolTip = ("Video quality/type preset.\ndisabled - Disabled\n\ncomposite - Composite Video\n\nsvideo - S-Video\n\nrgb - RGB\n\nmonochrome - Monochrome")
+          List = [("disabled"), ("composite"), ("svideo"), ("rgb"), ("monochrome")]
+          Text = ("disabled")
+        }
+      }
+      { CheckBox39 CheckBox
+        MoveScaled(23.5556,7.5556,22,4)
+        ToolTip = ("Remove 8-sprites-per-scanline hardware limit.\nWARNING: Enabling this option will cause graphical glitches in some games, including \"Solstice\".")
+        AutoResize = True
+        Text = ("Correct Aspect Ratio")
+      }
+    }
+    { Frame15 Frame
+      MoveScaled(47,0,37,33)
+      Text = ("WonderSwan Options")
+      { CheckBox22 CheckBox
+        MoveScaled(1,29,24,4)
+        ToolTip = ("Virtually rotate D-pads along with screen.")
+        AutoResize = True
+        Text = ("Rotate Emulated D-Pad")
+      }
+      { Label63 Label
+        MoveScaled(1,25,9,4)
+        Text = ("Language")
+      }
+      { ComboBox34 ComboBox
+        MoveScaled(15,25,21,4)
+        List = [("english"), ("japanese")]
+        Text = ("english")
+      }
+      { Panel35 Panel
+        MoveScaled(1,3,12,17)
+        { Label43 Label
+          MoveScaled(0,0.1111,6,4)
+          Text = ("Name")
+        }
+        { Label44 Label
+          MoveScaled(0,4.3333,9,4)
+          Text = ("Birth Year")
+        }
+        { Label45 Label
+          MoveScaled(0,8.5556,11,4)
+          Text = ("Birth Month")
+        }
+        { Label46 Label
+          MoveScaled(0,12.6667,9,4)
+          Text = ("Birth Day")
+        }
+      }
+      { Panel36 Panel
+        MoveScaled(15,3,22,17)
+        { TextBox21 TextBox
+          MoveScaled(0,0.1111,21,4)
+          Text = ("Buggy")
+        }
+        { ComboBox20 ComboBox
+          MoveScaled(0,4.3333,21,4)
+          Text = ("1977")
+        }
+        { ComboBox21 ComboBox
+          MoveScaled(0,8.5556,21,4)
+          Text = ("11")
+        }
+        { ComboBox22 ComboBox
+          MoveScaled(0,12.6667,21,4)
+          Text = ("22")
+        }
+      }
+      { Label47 Label
+        MoveScaled(1,21,9,4)
+        Text = ("Sex")
+      }
+      { RadioButton1 RadioButton
+        MoveScaled(15,21,8,4)
+        AutoResize = True
+        Text = ("Male")
+      }
+      { RadioButton2 RadioButton
+        MoveScaled(26,21,10,4)
+        AutoResize = True
+        Text = ("Female")
+        Value = True
+      }
+    }
+    { Frame16 Frame
+      MoveScaled(0,32,46,21)
+      Text = ("Virtual Boy Options")
+      { Panel32 Panel
+        MoveScaled(15,3,15,13)
+        { Label48 Label
+          MoveScaled(0,0.3333,10,4)
+          AutoResize = True
+          Text = ("3D Mode")
+        }
+        { Label49 Label
+          MoveScaled(0,4.5556,11,4)
+          AutoResize = True
+          Text = ("3D Presets")
+        }
+        { Label50 Label
+          MoveScaled(0,8.6667,14,4)
+          AutoResize = True
+          Text = ("CPU Emulation")
+        }
+      }
+      { Panel33 Panel
+        MoveScaled(29,3,17,13)
+        { ComboBox23 ComboBox
+          MoveScaled(0,0.3333,16,4)
+          ToolTip = ("3D mode.\nanaglyph - Anaglyph\nUsed in conjuction with classic dual-lens-color glasses.\n\ncscope - CyberScope\nIntended for use with the CyberScope 3D device.\n\nsidebyside - Side-by-Side\nThe left-eye image is displayed on the left, and the right-eye image is displayed on the right.\n\nvli - Vertical Line Interlaced\nVertical lines alternate between left view and right view.\n\nhli - Horizontal Line Interlaced\nHorizontal lines alternate between left view and right view.")
+          List = [("anaglyph"), ("cscope"), ("sidebyside"), ("vli"), ("hli")]
+          Text = ("anaglyph")
+        }
+        { ComboBox24 ComboBox
+          MoveScaled(0,4.5556,16,4)
+          ToolTip = ("Anaglyph preset colors.\ndisabled - Disabled\nForces usage of custom anaglyph colors.\n\nred_blue - Red/Blue\nClassic red/blue anaglyph.\n\nred_cyan - Red/Cyan\nImproved quality red/cyan anaglyph.\n\nred_electriccyan - Red/Electric Cyan\nAlternate version of red/cyan\n\nred_green - Red/Green\n\ngreen_magenta - Green/Magenta\n\nyellow_blue - Yellow/Blue")
+          List = [("disabled"), ("red_blue"), ("red_cyan"), ("red_electriccyan"), ("red_green"), ("green_magenta"), ("yellow_blue")]
+          Text = ("red_blue")
+        }
+        { ComboBox25 ComboBox
+          MoveScaled(0,8.6667,16,4)
+          ToolTip = ("CPU emulation mode.\nfast - Fast Mode\nFast mode trades timing accuracy, cache emulation, and executing from hardware registers and RAM not intended for code use for performance.\n\naccurate - Accurate Mode\nIncreased timing accuracy, though not perfect, along with cache emulation, at the cost of decreased performance. Additionally, even the pipeline isn't correctly and fully emulated in this mode.")
+          List = [("fast"), ("accurate")]
+          Text = ("fast")
+        }
+      }
+      { Panel34 Panel
+        MoveScaled(15,16,31,5)
+        { CheckBox23 CheckBox
+          MoveScaled(1.5556,0.5556,11,4)
+          ToolTip = ("Disable parallax for BG and OBJ rendering.")
+          AutoResize = True
+          Text = ("Paralax")
+        }
+        { CheckBox24 CheckBox
+          MoveScaled(14.3333,0.5556,15,4)
+          ToolTip = ("Reverse left/right 3D views.")
+          AutoResize = True
+          Text = ("3D Reverse")
+        }
+      }
+      { Panel39 Panel
+        MoveScaled(1,3,7,9)
+        { Label51 Label
+          MoveScaled(0,1,6,3)
+          Text = ("Left")
+          Alignment = Align.TopLeft
+        }
+        { Label52 Label
+          MoveScaled(0,5,6,3)
+          Text = ("Right")
+          Alignment = Align.TopLeft
+        }
+      }
+      { Panel40 Panel
+        MoveScaled(9,3,5,9)
+        { Button23 Button
+          MoveScaled(0,0.3333,4,4)
+          ToolTip = ("Left custom color")
+        }
+        { Button24 Button
+          MoveScaled(0,4.5556,4,4)
+          ToolTip = ("Right custom color")
+        }
+      }
+    }
+    { Frame17 Frame
+      MoveScaled(47,33,37,10)
+      ToolTip = ("Language games should display text in.\njapanese - Japanese\n\nenglish - English")
+      Text = ("Neo Geo Pocket Options")
+      { Panel37 Panel
+        MoveScaled(1,4,35,5)
+        { Label53 Label
+          MoveScaled(1,0.5556,11,4)
+          Text = ("Language")
+        }
+        { RadioButton3 RadioButton
+          MoveScaled(13,0.5556,10,4)
+          AutoResize = True
+          Text = ("English")
+          Value = True
+        }
+        { RadioButton4 RadioButton
+          MoveScaled(24,0.5556,10,4)
+          AutoResize = True
+          Text = ("Japan")
+        }
+      }
+    }
+    { Frame18 Frame
+      MoveScaled(47,44,37,9)
+      Text = ("Lynx Options")
+      { Panel38 Panel
+        MoveScaled(1,4,35,5)
+        { CheckBox25 CheckBox
+          MoveScaled(0.5556,0.5556,16,4)
+          ToolTip = ("Virtually rotate D-pad along with screen.")
+          AutoResize = True
+          Text = ("Rotate D-Pad")
+        }
+        { CheckBox26 CheckBox
+          MoveScaled(17.3333,0.5556,17,4)
+          ToolTip = ("Enable sound output lowpass filter.")
+          AutoResize = True
+          Text = ("Audio Lowpass")
+        }
+      }
+    }
+    Index = 4
+    Text = ("Megadrive-Genesis/Super &Nintendo/PlayStation")
+    { Frame19 Frame
+      MoveScaled(0,0,41,23)
+      Text = ("Genesis/Megadrive Options")
+      { CheckBox27 CheckBox
+        MoveScaled(1,3,23,4)
+        ToolTip = ("Correct the aspect ratio.")
+        AutoResize = True
+        Text = ("Correct Aspect Ratio")
+      }
+      { Label54 Label
+        MoveScaled(1,7,15,4)
+        Text = ("Emulate Region")
+      }
+      { ComboBox26 ComboBox
+        MoveScaled(23,7,16,4)
+        ToolTip = ("Emulate the specified region's Genesis/MegaDrive\ngame - Match game's header.\nEmulate the region that the game indicates it expects to run in via data in the header(or in an internal database for a few games that may have bad header data).\n\noverseas_ntsc - Overseas(non-Japan), NTSC\nRegion used in North America.\n\noverseas_pal - Overseas(non-Japan), PAL\nRegion used in Europe.\n\ndomestic_ntsc - Domestic(Japan), NTSC\nRegion used in Japan.\n\ndomestic_pal - Domestic(Japan), PAL\nProbably an invalid region, but available for testing purposes anyway.")
+        List = [("game"), ("overseas_ntsc"), ("overseas_pal"), ("domestic_ntsc"), ("domestic_pal")]
+        Text = ("game")
+      }
+      { Label55 Label
+        MoveScaled(1,12,22,4)
+        Text = ("Device For Input Port 1")
+      }
+      { ComboBox27 ComboBox
+        MoveScaled(23,12,16,4)
+        ToolTip = ("Input device for Port 1\nnone - none\n\ngamepad2 - 2-Button Gamepad\n\ngamepad - 3-Button Gamepad\n\ngamepad6 - 6-Button Gamepad\n\nmegamouse - Sega Mega Mouse")
+        List = [("none"), ("gamepad2"), ("gamepad"), ("gamepad6"), ("megamouse")]
+        Text = ("gamepad")
+      }
+      { Label56 Label
+        MoveScaled(1,17,22,4)
+        Text = ("Device For Input Port 2")
+      }
+      { ComboBox28 ComboBox
+        MoveScaled(23,17,16,4)
+        ToolTip = ("Input device for Port 2\nnone - none\n\ngamepad2 - 2-Button Gamepad\n\ngamepad - 3-Button Gamepad\n\ngamepad6 - 6-Button Gamepad\n\nmegamouse - Sega Mega Mouse")
+        List = [("none"), ("gamepad2"), ("gamepad"), ("gamepad6"), ("megamouse")]
+        Text = ("gamepad")
+      }
+    }
+    { Frame20 Frame
+      MoveScaled(0,23,41,27)
+      Text = ("Super Nintendo Options")
+      { CheckBox28 CheckBox
+        MoveScaled(1,8,28,4)
+        ToolTip = ("Enable multitap on SNES port 1.")
+        AutoResize = True
+        Text = ("Emulate Multitap On Port 1")
+      }
+      { CheckBox29 CheckBox
+        MoveScaled(1,12,28,4)
+        ToolTip = ("Enable multitap on SNES port 2.")
+        AutoResize = True
+        Text = ("Emulate Multitap On Port 2")
+      }
+      { Label57 Label
+        MoveScaled(1,16,22,4)
+        Text = ("Device For Input Port 1")
+      }
+      { ComboBox29 ComboBox
+        MoveScaled(23,16,16,4)
+        ToolTip = ("Input device for Port 1/1A\nnone - none\n\ngamepad - Gamepad\n\nmouse - Mouse")
+        List = [("none"), ("gamepad"), ("mouse")]
+        Text = ("gamepad")
+      }
+      { Label58 Label
+        MoveScaled(1,21,22,4)
+        Text = ("Device For Input Port 2")
+      }
+      { ComboBox30 ComboBox
+        MoveScaled(23,21,16,4)
+        ToolTip = ("Input device for Port 2/2A\nnone - none\n\ngamepad - Gamepad\n\nmouse - Mouse")
+        List = [("none"), ("gamepad"), ("mouse")]
+        Text = ("gamepad")
+      }
+      { CheckBox38 CheckBox
+        MoveScaled(1,4,23,4)
+        ToolTip = ("Correct the aspect ratio.")
+        AutoResize = True
+        Text = ("Correct Aspect Ratio")
+      }
+    }
+    { Frame21 Frame
+      MoveScaled(42,0,42,53)
+      Text = ("Sony Playstation Options")
+      { Label59 Label
+        MoveScaled(2,21,22,4)
+        Text = ("Device For Input Port 1")
+      }
+      { ComboBox31 ComboBox
+        MoveScaled(24,21,16,4)
+        ToolTip = ("Input device for Port 1\nnone - none\n\ngamepad - Digital Gamepad\n\ndualanalog - Dual Analog\n\nanalogjoy - Analog Joystick\n\nmouse - Mouse")
+        List = [("none"), ("gamepad"), ("dualshock"), ("dualanalog"), ("analogjoy"), ("mouse"), ("negcon"), ("guncon"), ("justifier"), ("dancepad")]
+        Text = ("gamepad")
+      }
+      { Label60 Label
+        MoveScaled(2,26,22,4)
+        Text = ("Device For Input Port 2")
+      }
+      { ComboBox32 ComboBox
+        MoveScaled(24,26,16,4)
+        ToolTip = ("Input device for Port 2\nnone - none\n\ngamepad - Digital Gamepad\n\ndualanalog - Dual Analog\n\nanalogjoy - Analog Joystick\n\nmouse - Mouse")
+        List = [("none"), ("gamepad"), ("dualshock"), ("dualanalog"), ("analogjoy"), ("mouse"), ("negcon"), ("guncon"), ("justifier"), ("dancepad")]
+        Text = ("gamepad")
+      }
+      { Label61 Label
+        MoveScaled(2,12,32,4)
+        Text = ("SPU Output Resampler Quality 5")
+      }
+      { Slider9 Slider
+        MoveScaled(2,16,38,4)
+        ToolTip = ("SPU output resampler quality.\n0 is lowest quality and CPU usage, 10 is highest quality and CPU usage. The resampler that this setting refers to is used for converting from 44.1KHz to the sampling rate of the host audio device Mednafen is using. Changing Mednafen's output rate, via the \"sound.rate\" setting, to \"44100\" will bypass the resampler, which will decrease CPU usage by Mednafen, and can increase or decrease audio quality, depending on various operating system and hardware factors.")
+        MaxValue = 10
+        Value = 5
+      }
+      { CheckBox32 CheckBox
+        MoveScaled(2,31,27,4)
+        ToolTip = ("Enable multitap on PSX port:")
+        AutoResize = True
+        Text = ("Enable Multitap On Port:")
+      }
+      { ComboBox35 ComboBox
+        MoveScaled(32,31,8,4)
+        List = [("1"), ("2")]
+        Text = ("2")
+      }
+      { CheckBox34 CheckBox
+        MoveScaled(2,35,27,4)
+        ToolTip = ("Emulate memcard on port:")
+        AutoResize = True
+        Text = ("Emulate Memcard on Port:")
+      }
+      { ComboBox36 ComboBox
+        MoveScaled(32,35,8,4)
+        List = [("1"), ("2")]
+        Text = ("1")
+      }
+      { CheckBox35 CheckBox
+        MoveScaled(2,3,25,4)
+        ToolTip = ("Attempt to auto-detect region of game.")
+        AutoResize = True
+        Text = ("Autodetect PSX Region")
+      }
+      { Label65 Label
+        MoveScaled(2,7,16,4)
+        Text = ("Set PSX Region To:")
+      }
+      { ComboBox37 ComboBox
+        MoveScaled(19,7,8,4)
+        ToolTip = ("Default region to use.\n\nUsed if region autodetection fails or is disabled.\njp - Japan\n\nna - North America\n\neu - Europe")
+        List = [("jp"), ("na"), ("eu")]
+        Text = ("jp")
+      }
+      { Label70 Label
+        MoveScaled(2,46,39,4)
+        Visible = False
+        Font = Font["Italic"]
+        Text = ("Select a base image file")
+        Alignment = Align.Center
+      }
+      { Panel46 Panel
+        MoveScaled(2,40,39,5)
+        { Label69 Label
+          MoveScaled(0,0.5556,8,4)
+          Text = ("Make:")
+        }
+        { RadioButton5 RadioButton
+          MoveScaled(9,0.5556,10,4)
+          Text = ("CUE")
+        }
+        { RadioButton6 RadioButton
+          MoveScaled(19,0.5556,10,4)
+          Text = ("TOC")
+          Value = True
+        }
+        { Button31 Button
+          MoveScaled(30,0.5556,8,4)
+          ToolTip = ("Select a base image file supported.")
+          Text = ("GO!")
+        }
+      }
+    }
+    Index = 5
+    Text = ("&Sega Saturn/Apple II")
+    { Frame25 Frame
+      MoveScaled(0,0,42,53)
+      Text = ("Sega Saturn Options")
+      { Label72 Label
+        MoveScaled(2,21,22,4)
+        Text = ("Device For Input Port 1")
+      }
+      { ComboBox41 ComboBox
+        MoveScaled(24,21,16,4)
+        ToolTip = ("Input device for Port 1\nnone - none\n\ngamepad - Digital Gamepad\n\ndualanalog - Dual Analog\n\nanalogjoy - Analog Joystick\n\nmouse - Mouse")
+        List = [("none"), ("gamepad"), ("3dpad"), ("mouse"), ("wheel"), ("mission"), ("dmission"), ("gun"), ("keyboard"), ("jpkeyboard")]
+        Text = ("gamepad")
+      }
+      { Label73 Label
+        MoveScaled(2,26,22,4)
+        Text = ("Device For Input Port 2")
+      }
+      { Label74 Label
+        MoveScaled(2,12,32,4)
+        Text = ("SCSP Output Resampler Quality 4")
+      }
+      { Slider10 Slider
+        MoveScaled(2,16,38,4)
+        ToolTip = ("SPU output resampler quality.\n0 is lowest quality and CPU usage, 10 is highest quality and CPU usage. The resampler that this setting refers to is used for converting from 44.1KHz to the sampling rate of the host audio device Mednafen is using. Changing Mednafen's output rate, via the \"sound.rate\" setting, to \"44100\" will bypass the resampler, which will decrease CPU usage by Mednafen, and can increase or decrease audio quality, depending on various operating system and hardware factors.")
+        MaxValue = 10
+        Value = 4
+      }
+      { CheckBox40 CheckBox
+        MoveScaled(2,31,27,4)
+        ToolTip = ("Enable multitap on PSX port:")
+        AutoResize = True
+        Text = ("Enable Multitap On Port:")
+      }
+      { ComboBox43 ComboBox
+        MoveScaled(32,31,8,4)
+        List = [("1"), ("2")]
+        Text = ("2")
+      }
+      { CheckBox41 CheckBox
+        MoveScaled(2,45,34,4)
+        ToolTip = ("Emulate memcard on port:")
+        AutoResize = True
+        Text = ("Enable mid-frame synchronization")
+      }
+      { ComboBox44 ComboBox
+        MoveScaled(24,36,16,4)
+        List = [("english"), ("german"), ("french"), ("spanish"), ("italian"), ("japanese")]
+        Text = ("english")
+      }
+      { CheckBox42 CheckBox
+        MoveScaled(2,3,25,4)
+        ToolTip = ("Attempt to auto-detect region of game.")
+        AutoResize = True
+        Text = ("Autodetect Region")
+      }
+      { Label75 Label
+        MoveScaled(2,7,21,4)
+        Text = ("Set Saturn Region To:")
+      }
+      { ComboBox45 ComboBox
+        MoveScaled(24,7,8,4)
+        ToolTip = ("Default region to use.\n\nUsed if region autodetection fails or is disabled.\njp - Japan\n\nna - North America\n\neu - Europe")
+        List = [("jp"), ("na"), ("eu"), ("kr"), ("tw"), ("as"), ("br"), ("la")]
+        Text = ("jp")
+      }
+      { ComboBox42 ComboBox
+        MoveScaled(24,26,16,4)
+        ToolTip = ("Input device for Port 1\nnone - none\n\ngamepad - Digital Gamepad\n\ndualanalog - Dual Analog\n\nanalogjoy - Analog Joystick\n\nmouse - Mouse")
+        List = [("none"), ("gamepad"), ("3dpad"), ("mouse"), ("wheel"), ("mission"), ("dmission"), ("gun"), ("keyboard"), ("jpkeyboard")]
+        Text = ("gamepad")
+      }
+      { CheckBox43 CheckBox
+        MoveScaled(2,41,23,4)
+        ToolTip = ("Correct the aspect ratio.")
+        AutoResize = True
+        Text = ("Correct Aspect Ratio")
+      }
+      { Label76 Label
+        MoveScaled(8,36,15,4)
+        Text = ("BIOS language:")
+      }
+    }
+    { Frame26 Frame
+      MoveScaled(42,0,42,53)
+      Text = ("Apple II Options")
+      { Label77 Label
+        MoveScaled(2,4,22,4)
+        Text = ("Device For Input Port 1")
+      }
+      { ComboBox46 ComboBox
+        MoveScaled(24,4,16,4)
+        ToolTip = ("Input device for Port 1\nnone - none\n\ngamepad - Digital Gamepad\n\ndualanalog - Dual Analog\n\nanalogjoy - Analog Joystick\n\nmouse - Mouse")
+        List = [("none"), ("gamepad"), ("3dpad"), ("mouse"), ("wheel"), ("mission"), ("dmission"), ("gun"), ("keyboard"), ("jpkeyboard")]
+        Text = ("gamepad")
+      }
+      { Label78 Label
+        MoveScaled(2,9,22,4)
+        Text = ("Device For Input Port 2")
+      }
+      { CheckBox45 CheckBox
+        MoveScaled(2,23,34,4)
+        ToolTip = ("Emulate memcard on port:")
+        AutoResize = True
+        Text = ("Enable mid-frame synchronization")
+      }
+      { ComboBox48 ComboBox
+        MoveScaled(24,14,16,4)
+        List = [("english"), ("german"), ("french"), ("spanish"), ("italian"), ("japanese")]
+        Text = ("english")
+      }
+      { ComboBox50 ComboBox
+        MoveScaled(24,9,16,4)
+        ToolTip = ("Input device for Port 1\nnone - none\n\ngamepad - Digital Gamepad\n\ndualanalog - Dual Analog\n\nanalogjoy - Analog Joystick\n\nmouse - Mouse")
+        List = [("none"), ("gamepad"), ("3dpad"), ("mouse"), ("wheel"), ("mission"), ("dmission"), ("gun"), ("keyboard"), ("jpkeyboard")]
+        Text = ("gamepad")
+      }
+      { CheckBox47 CheckBox
+        MoveScaled(2,19,23,4)
+        ToolTip = ("Correct the aspect ratio.")
+        AutoResize = True
+        Text = ("Correct Aspect Ratio")
+      }
+      { Label81 Label
+        MoveScaled(9,14,15,4)
+        Text = ("BIOS language:")
+      }
+    }
+    Index = 6
+    Text = ("&Media/Log")
+    { Frame22 Frame
+      MoveScaled(0,0,84,14)
+      Text = ("Record")
+      { Panel41 Panel
+        MoveScaled(1,3,22,9)
+        { CheckBox31 CheckBox
+          MoveScaled(0,0.3333,21,4)
+          ToolTip = ("Record sound output to the specified filename in the MS WAV format")
+          AutoResize = True
+          Text = ("Sound To Directory")
+        }
+        { CheckBox33 CheckBox
+          MoveScaled(0,4.5556,21,4)
+          ToolTip = ("Record video and audio output to the specified filename in the QuickTime format")
+          AutoResize = True
+          Text = ("Movie To Directory")
+        }
+      }
+      { Panel42 Panel
+        MoveScaled(22,3,24,9)
+        { TextBox22 TextBox
+          MoveScaled(0,0.3333,23,4)
+        }
+        { TextBox24 TextBox
+          MoveScaled(0,4.5556,23,4)
+        }
+      }
+      { Panel43 Panel
+        MoveScaled(47,3,6,9)
+        { Button27 Button
+          MoveScaled(0,0.3333,5,4)
+          ToolTip = ("Select a folder to save sound session")
+          Text = ("") & "..."
+        }
+        { Button28 Button
+          MoveScaled(0,4.5556,5,4)
+          ToolTip = ("Select a folder to save movie session")
+          Text = ("") & "..."
+        }
+      }
+      { Panel44 Panel
+        MoveScaled(55,3,12,9)
+        { Label62 Label
+          MoveScaled(0,0.3333,9,4)
+          AutoResize = True
+          Text = ("Filename")
+        }
+        { Label64 Label
+          MoveScaled(0,4.5556,11,4)
+          AutoResize = True
+          Text = ("Video Codec")
+        }
+      }
+      { Panel45 Panel
+        MoveScaled(67,3,17,9)
+        { TextBox23 TextBox
+          MoveScaled(0,0.3333,16,4)
+          Text = ("sample")
+        }
+        { ComboBox33 ComboBox
+          MoveScaled(0,4.5556,16,4)
+          ToolTip = ("Video codec to use.\nraw - Raw\nA fast codec, computationally, but will cause enormous file size and may exceed your storage medium's sustained write rate.\n\ncscd - CamStudio Screen Codec\nA good balance between performance and compression ratio.\n\npng - PNG\nHas a better compression ratio than \"cscd\", but is much more CPU intensive. \nUse for compatibility with official QuickTime in cases where you have insufficient disk space for \"raw\".")
+          List = [("raw"), ("cscd"), ("png")]
+          Text = ("cscd")
+        }
+      }
+    }
+    { TextArea1 TextArea
+      MoveScaled(0,15,84,34)
+      Text = ("Mednafen Log Output")
+    }
+    { Panel47 Panel
+      MoveScaled(0,49,84,6)
+      { Label71 Label
+        MoveScaled(1,1,24,4)
+        AutoResize = True
+      }
+    }
+    Index = 0
+  }
+  { Label1 Label
+    MoveScaled(2,1,8,4)
+    Text = ("System")
+  }
+  { PictureBox1 PictureBox
+    MoveScaled(10,0,7,5)
+    Alignment = Align.Center
+  }
+  { Panel10 Panel
+    MoveScaled(1,64,86,5)
+    { Button2 Button
+      MoveScaled(1.3333,0.5556,9,4)
+      ToolTip = ("Open Mednafen Help FAQ")
+      Text = Shortcut(("Help"), "H")
+    }
+    { Button26 Button
+      MoveScaled(11.5556,0.5556,5,4)
+      Text = ("?")
+    }
+    { CheckBox30 CheckBox
+      MoveScaled(17.6667,0.5556,17,4)
+      ToolTip = ("Use to print Mednafen log output.\nUsefull if emulator don't start to see problems")
+      AutoResize = True
+      Text = ("Print log output")
+    }
+    { CheckBox10 CheckBox
+      MoveScaled(36,0.5556,18,4)
+      ToolTip = ("Automatic load/save state on game load/save.\nAutomatically save and load save states when a game is closed or loaded, respectively.")
+      AutoResize = True
+      Text = ("On Exit Autosave")
+    }
+    { CheckBox37 CheckBox
+      MoveScaled(55.3333,0.5556,19,4)
+      ToolTip = ("Load a game from fisical CD")
+      AutoResize = True
+      Text = ("Load From CD/DVD")
+    }
+    { Button3 Button
+      MoveScaled(75.5556,0.5556,9,4)
+      ToolTip = ("Launch amulation")
+      Text = Shortcut(("Launch"), "L")
+    }
+  }
+  { Panel12 Panel
+    MoveScaled(18,1,69,5)
+    { ComboBox1 ComboBox
+      MoveScaled(0.6667,0,12,4)
+      ToolTip = ("Select a console to emulate")
+      List = [("lynx"), ("gb"), ("gba"), ("ngp"), ("nes"), ("pce"), ("pce_fast"), ("pcfx"), ("gg"), ("md"), ("sms"), ("psx"), ("snes"), ("snes_faust"), ("ss"), ("vb"), ("wswan")]
+      Sorted = True
+    }
+    { TextBox1 TextBox
+      MoveScaled(13.5556,0,27,4)
+    }
+    { Button1 Button
+      MoveScaled(41.4444,0,9,4)
+      ToolTip = ("Select a rom to emulate")
+      Text = Shortcut(("Rom"), "R")
+    }
+    { Button25 Button
+      MoveScaled(51.3333,0,9,4)
+      ToolTip = ("Open temporany ROM folder")
+      Text = Shortcut(("LTRom"), "T")
+    }
+    { Button29 Button
+      MoveScaled(61.1111,0,7,4)
+      ToolTip = ("Open snaps preview")
+      Text = Shortcut(("Snaps"), "S")
+    }
+  }
+}
