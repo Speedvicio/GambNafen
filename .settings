@@ -50,10 +50,11 @@ SearchString=True
 [OpenFile]
 File[1]=".src/CUE.form"
 File[2]=".src/CUE.class:2.16"
-Active=3
-Count=4
+Active=4
+Count=5
 File[3]=".src/FMain.form"
-File[4]=".src/FMain.class:0.450"
+File[4]=".src/FMain.class:60.453"
+File[5]="/tmp/gambas.1000/2821/1.console:0.0"
 
 [Watches]
 Count=0

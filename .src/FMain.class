@@ -110,6 +110,8 @@ Public command2 As String
 Public GLog As String
 Public MedV As Integer
 
+Public Arch As String
+
 Public Sub _new()
 
 End
@@ -117,6 +119,8 @@ End
 
 Public Sub assegna()
 Dim bGBA As String
+Dim esmop As String
+
 rom = " " & Chr(34) & textbox1.text & Chr(34)
 console = " -" & ComboBox1.text & "."
 
@@ -445,9 +449,19 @@ End If
 
 'sezione Saturn
 
+If arch = "64-bit" Then
+If CheckBox40.Value = True Then
+esmop = " -ss.input.sport" & combobox43.text & ".multitap 1"
+Else
+esmop = " -ss.input.sport" & combobox43.text & ".multitap 0"
+End If
+
 Saturn = " -ss.region_autodetect " & checkbox42.Value & " -ss.region_default " & combobox45.text & " -ss.scsp.resamp_quality " & slider10.value & 
 " -ss.input.port1 " & combobox41.text & " -ss.input.port2 " & combobox42.text & " -ss.smpc.autortc.lang " & combobox44.text & 
-" -ss.correct_aspect " & checkbox43.value & " -ss.midsync " & checkbox43.value
+" -ss.correct_aspect " & checkbox43.value & " -ss.midsync " & checkbox43.value & esmop
+Else
+  saturn = ""
+  Endif
 
 'sezione registrazione
 If CheckBox31.Value = True And textbox22.text <> "" Then
@@ -695,13 +709,13 @@ End
 Public Sub ParseLog()
 Dim Elt As String[]
 Dim Sb As String[]
+Dim LogArch As String
 
 Shell "mednafen " To GLog
 
 Elt = Split(GLog, Chr$(10))
 
 sb = Split(Elt[0], " ")
-label71.text = Trim(sb[1] & " " & sb[2])
 medv = Val(Replace(sb[2], ".", ""))
 
 If MedV < 0949 Then
@@ -712,6 +726,19 @@ CheckBox15.Enabled = False
 CheckBox22.Enabled = False
 Endif
 
+If Exist("/usr/games/mednafen") Then
+  Shell "file /usr/games/mednafen" To LogArch
+Else If Exist("/usr/local/bin/mednafen") Then
+Shell "file /usr/local/bin/mednafen" To LogArch
+Endif
+
+If InStr(logarch, "62-bit") > 0 Then
+  arch = "64-bit"
+  Else
+    arch = "32-bit"
+Endif
+
+label71.text = Trim(sb[1] & " " & sb[2]) & " " & Arch
 End
 
 
